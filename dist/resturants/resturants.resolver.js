@@ -8,21 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResturantsResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const resturant_entity_1 = require("./entities/resturant.entity");
 let ResturantsResolver = class ResturantsResolver {
-    myResturant() {
-        return true;
+    resturants(veganOnly) {
+        return [];
     }
 };
 __decorate([
-    graphql_1.Query(() => resturant_entity_1.Resturant),
+    graphql_1.Query(() => [resturant_entity_1.Resturant]),
+    __param(0, graphql_1.Args('veganOnly')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], ResturantsResolver.prototype, "myResturant", null);
+    __metadata("design:paramtypes", [Boolean]),
+    __metadata("design:returntype", Array)
+], ResturantsResolver.prototype, "resturants", null);
 ResturantsResolver = __decorate([
     graphql_1.Resolver(() => resturant_entity_1.Resturant)
 ], ResturantsResolver);

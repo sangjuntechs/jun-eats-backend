@@ -1,3 +1,4 @@
+import { Resturant } from './entities/resturant.entity';
 export declare class ResturantsResolver {
-    myResturant(): boolean;
+    resturants(veganOnly: boolean): Resturant[];
 }

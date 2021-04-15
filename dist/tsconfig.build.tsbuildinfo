@@ -4061,8 +4061,8 @@
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.resolver.ts": {
-        "version": "541b5ccd9b958a447a6e6abd9b787d095ba7d22b109c0dfe8e44fd67df3e446d",
-        "signature": "fb36cd625a76efb4971067b6e309ee2c9cff03ac475ebb2fa9fe07b94e1956f2",
+        "version": "10a1d1aca68b59c0cea858ad7f1880d4368974088f4bb1b64823b7f254e614ed",
+        "signature": "0537a9b43e072e48da9e7dde511950d5224fb376cdeb55431eb62bdaa1822821",
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.module.ts": {
@@ -11102,6 +11102,9 @@
       ],
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts": [
         "../node_modules/zen-observable-ts/lib/types.d.ts"
+      ],
+      "../src/resturants/resturants.resolver.ts": [
+        "../src/resturants/entities/resturant.entity.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
