@@ -4055,9 +4055,14 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "../src/resturants/entities/resturant.entity.ts": {
+        "version": "5ab52202e2065eec48d4d572fadc4d6afdd3002c83d14c7f0926d6fb6d802ab4",
+        "signature": "c7f8f6b2013eee34db6c3c4525bf66bf4ee764bdea62beb1fda244c43b398f2e",
+        "affectsGlobalScope": false
+      },
       "../src/resturants/resturants.resolver.ts": {
-        "version": "1776b4f782fef5ab06d88abea6a93886f2b63ed4695c2bf5dfceef30852ba8a5",
-        "signature": "95cb074093cf6b9090e75aae8d2dcba6eb3ebb591d5319c19b2e22fec546ed95",
+        "version": "541b5ccd9b958a447a6e6abd9b787d095ba7d22b109c0dfe8e44fd67df3e446d",
+        "signature": "fb36cd625a76efb4971067b6e309ee2c9cff03ac475ebb2fa9fe07b94e1956f2",
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.module.ts": {
@@ -7684,12 +7689,16 @@
         "../node_modules/@nestjs/core/index.d.ts",
         "../src/app.module.ts"
       ],
+      "../src/resturants/entities/resturant.entity.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
       "../src/resturants/resturants.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/resturants/resturants.resolver.ts"
       ],
       "../src/resturants/resturants.resolver.ts": [
-        "../node_modules/@nestjs/graphql/index.d.ts"
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/resturants/entities/resturant.entity.ts"
       ]
     },
     "exportedModulesMap": {
@@ -11945,6 +11954,7 @@
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts",
       "../src/app.module.ts",
       "../src/main.ts",
+      "../src/resturants/entities/resturant.entity.ts",
       "../src/resturants/resturants.module.ts",
       "../src/resturants/resturants.resolver.ts"
     ]

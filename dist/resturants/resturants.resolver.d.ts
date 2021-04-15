@@ -1,3 +1,3 @@
 export declare class ResturantsResolver {
-    pizza(): boolean;
+    myResturant(): boolean;
 }
