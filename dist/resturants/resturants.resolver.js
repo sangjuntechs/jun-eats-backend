@@ -20,7 +20,7 @@ let ResturantsResolver = class ResturantsResolver {
     resturants(veganOnly) {
         return [];
     }
-    createRetaurant(createResturantDto) {
+    createRestaurant(createResturantDto) {
         console.log(createResturantDto);
         return true;
     }
@@ -38,7 +38,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_resturant_dto_1.createResturantDto]),
     __metadata("design:returntype", Boolean)
-], ResturantsResolver.prototype, "createRetaurant", null);
+], ResturantsResolver.prototype, "createRestaurant", null);
 ResturantsResolver = __decorate([
     graphql_1.Resolver(() => resturant_entity_1.Resturant)
 ], ResturantsResolver);

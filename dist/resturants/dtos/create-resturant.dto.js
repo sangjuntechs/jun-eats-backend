@@ -11,22 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createResturantDto = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const class_validator_1 = require("class-validator");
 let createResturantDto = class createResturantDto {
 };
 __decorate([
     graphql_1.Field(() => String),
+    class_validator_1.IsString(),
+    class_validator_1.Length(5, 10),
     __metadata("design:type", String)
 ], createResturantDto.prototype, "name", void 0);
 __decorate([
     graphql_1.Field(() => Boolean),
+    class_validator_1.IsBoolean(),
     __metadata("design:type", Boolean)
 ], createResturantDto.prototype, "isVegan", void 0);
 __decorate([
     graphql_1.Field(() => String),
+    class_validator_1.IsString(),
     __metadata("design:type", String)
 ], createResturantDto.prototype, "address", void 0);
 __decorate([
     graphql_1.Field(() => String),
+    class_validator_1.IsString(),
+    class_validator_1.Length(5, 10),
     __metadata("design:type", String)
 ], createResturantDto.prototype, "ownerName", void 0);
 createResturantDto = __decorate([
