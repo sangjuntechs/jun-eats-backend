@@ -2,6 +2,6 @@
 
 🛠 nest.js기반의 백엔드 프로젝트입니다.
 
-DB : Postgre
-basic_language : Typescript
-connection : graphQL
+### DB : Postgre
+### basic_language : Typescript
+### connection : graphQL
