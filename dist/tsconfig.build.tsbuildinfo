@@ -4055,14 +4055,19 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "../src/resturants/dtos/create-resturant.dto.ts": {
+        "version": "47ae9c604e5242515247b406b5fe5804b7a86e0d07a20c849c7f4ad52c9d9e18",
+        "signature": "076efd9c96094419013ee17137112e05c837a3532cf979b37b38eca7557f58e1",
+        "affectsGlobalScope": false
+      },
       "../src/resturants/entities/resturant.entity.ts": {
-        "version": "5ab52202e2065eec48d4d572fadc4d6afdd3002c83d14c7f0926d6fb6d802ab4",
-        "signature": "c7f8f6b2013eee34db6c3c4525bf66bf4ee764bdea62beb1fda244c43b398f2e",
+        "version": "c7f448ed242c9b194841d2607d2dca7c4457ae9a7b20e779f3519f4970e1f454",
+        "signature": "04c6a8b510bf2973179ff828f8dfbb0850148af0ba93ba0fff9bb667b1c9cfff",
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.resolver.ts": {
-        "version": "10a1d1aca68b59c0cea858ad7f1880d4368974088f4bb1b64823b7f254e614ed",
-        "signature": "0537a9b43e072e48da9e7dde511950d5224fb376cdeb55431eb62bdaa1822821",
+        "version": "db8419cb0effbaeda219fcab20b2f2ee613357338a2e080068cf57f8d21a2688",
+        "signature": "2705eac983d34c7e16b7000e14caa2e7ae271837a9560fa117a8cc55d29b3743",
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.module.ts": {
@@ -7689,6 +7694,9 @@
         "../node_modules/@nestjs/core/index.d.ts",
         "../src/app.module.ts"
       ],
+      "../src/resturants/dtos/create-resturant.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
       "../src/resturants/entities/resturant.entity.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts"
       ],
@@ -7698,6 +7706,7 @@
       ],
       "../src/resturants/resturants.resolver.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/resturants/dtos/create-resturant.dto.ts",
         "../src/resturants/entities/resturant.entity.ts"
       ]
     },
@@ -11104,6 +11113,7 @@
         "../node_modules/zen-observable-ts/lib/types.d.ts"
       ],
       "../src/resturants/resturants.resolver.ts": [
+        "../src/resturants/dtos/create-resturant.dto.ts",
         "../src/resturants/entities/resturant.entity.ts"
       ]
     },
@@ -11957,6 +11967,7 @@
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts",
       "../src/app.module.ts",
       "../src/main.ts",
+      "../src/resturants/dtos/create-resturant.dto.ts",
       "../src/resturants/entities/resturant.entity.ts",
       "../src/resturants/resturants.module.ts",
       "../src/resturants/resturants.resolver.ts"

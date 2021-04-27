@@ -9,28 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Resturant = void 0;
+exports.createResturantDto = void 0;
 const graphql_1 = require("@nestjs/graphql");
-let Resturant = class Resturant {
+let createResturantDto = class createResturantDto {
 };
 __decorate([
     graphql_1.Field(() => String),
     __metadata("design:type", String)
-], Resturant.prototype, "name", void 0);
+], createResturantDto.prototype, "name", void 0);
 __decorate([
     graphql_1.Field(() => Boolean),
     __metadata("design:type", Boolean)
-], Resturant.prototype, "isVegan", void 0);
+], createResturantDto.prototype, "isVegan", void 0);
 __decorate([
     graphql_1.Field(() => String),
     __metadata("design:type", String)
-], Resturant.prototype, "address", void 0);
+], createResturantDto.prototype, "address", void 0);
 __decorate([
     graphql_1.Field(() => String),
     __metadata("design:type", String)
-], Resturant.prototype, "ownerName", void 0);
-Resturant = __decorate([
-    graphql_1.ObjectType()
-], Resturant);
-exports.Resturant = Resturant;
-//# sourceMappingURL=resturant.entity.js.map
+], createResturantDto.prototype, "ownerName", void 0);
+createResturantDto = __decorate([
+    graphql_1.ArgsType()
+], createResturantDto);
+exports.createResturantDto = createResturantDto;
+//# sourceMappingURL=create-resturant.dto.js.map
