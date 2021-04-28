@@ -4685,21 +4685,6 @@
         "signature": "076efd9c96094419013ee17137112e05c837a3532cf979b37b38eca7557f58e1",
         "affectsGlobalScope": false
       },
-      "../src/resturants/entities/resturant.entity.ts": {
-        "version": "c7f448ed242c9b194841d2607d2dca7c4457ae9a7b20e779f3519f4970e1f454",
-        "signature": "04c6a8b510bf2973179ff828f8dfbb0850148af0ba93ba0fff9bb667b1c9cfff",
-        "affectsGlobalScope": false
-      },
-      "../src/resturants/resturants.resolver.ts": {
-        "version": "7f364ef5670d0f963c34b022582be0a277245162bcd306a598e9b6640ad660e7",
-        "signature": "0acbd47a86d9b2ee227c79a0785d2120b7ea94f6b5b07c8324db721e76bf06c2",
-        "affectsGlobalScope": false
-      },
-      "../src/resturants/resturants.module.ts": {
-        "version": "17174000601d4cdc8fb5341f5546cca808c292fc7cd3aa2a21cb34113e5330a4",
-        "signature": "9e13a6ea5a5333a93880e4d2313ec690be035fce4ae5ce9e8e3afd283ea39cee",
-        "affectsGlobalScope": false
-      },
       "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts": {
         "version": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98",
         "signature": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98",
@@ -6350,6 +6335,21 @@
         "signature": "1f956ff5e76bced84fffad27c121cfe12ecca23de8081c9ab9377ead7167a57d",
         "affectsGlobalScope": false
       },
+      "../src/resturants/entities/resturant.entity.ts": {
+        "version": "af5551e0c8930f35e8e378bd46cab0598fe321b6efde186f6d908ff464f40812",
+        "signature": "42f153c7cee942f947c7de5aca41e367d04918be6ec901b5268112dcd22a52df",
+        "affectsGlobalScope": false
+      },
+      "../src/resturants/resturants.resolver.ts": {
+        "version": "7f364ef5670d0f963c34b022582be0a277245162bcd306a598e9b6640ad660e7",
+        "signature": "0acbd47a86d9b2ee227c79a0785d2120b7ea94f6b5b07c8324db721e76bf06c2",
+        "affectsGlobalScope": false
+      },
+      "../src/resturants/resturants.module.ts": {
+        "version": "17174000601d4cdc8fb5341f5546cca808c292fc7cd3aa2a21cb34113e5330a4",
+        "signature": "9e13a6ea5a5333a93880e4d2313ec690be035fce4ae5ce9e8e3afd283ea39cee",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type.d.ts": {
         "version": "e15db0d01139d39213a40639352debd92786f311e0421c21ac97c2ca4003a299",
         "signature": "e15db0d01139d39213a40639352debd92786f311e0421c21ac97c2ca4003a299",
@@ -6460,8 +6460,13 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "../node_modules/joi/lib/index.d.ts": {
+        "version": "332bc92a89da24ef3a645208f2b3159292460a52fbe63c40eef64c2a63bb1e40",
+        "signature": "332bc92a89da24ef3a645208f2b3159292460a52fbe63c40eef64c2a63bb1e40",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "ba8755c5e715894cc72ca27eab5aab4cf98072c7a050a225730b0b4536d38924",
+        "version": "f9449426e3756e3cc84c2bb9f74387647341b49a8c033b672bf203f04befcb66",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -11880,6 +11885,8 @@
         "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/joi/lib/index.d.ts",
+        "../src/resturants/entities/resturant.entity.ts",
         "../src/resturants/resturants.module.ts"
       ],
       "../src/main.ts": [
@@ -11892,7 +11899,8 @@
         "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/resturants/entities/resturant.entity.ts": [
-        "../node_modules/@nestjs/graphql/index.d.ts"
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../node_modules/typeorm/index.d.ts"
       ],
       "../src/resturants/resturants.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -18000,6 +18008,7 @@
       "../node_modules/jest-diff/build/index.d.ts",
       "../node_modules/jest-diff/build/printdiffs.d.ts",
       "../node_modules/jest-diff/build/types.d.ts",
+      "../node_modules/joi/lib/index.d.ts",
       "../node_modules/libphonenumber-js/index.d.ts",
       "../node_modules/libphonenumber-js/types.d.ts",
       "../node_modules/pretty-format/build/index.d.ts",
