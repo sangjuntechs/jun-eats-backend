@@ -24,6 +24,10 @@ let ResturantService = class ResturantService {
     getAll() {
         return this.resturants.find();
     }
+    createResturant(createResturantDto) {
+        const newResturant = this.resturants.create(createResturantDto);
+        return this.resturants.save(newResturant);
+    }
 };
 ResturantService = __decorate([
     common_1.Injectable(),
