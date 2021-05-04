@@ -6376,7 +6376,7 @@
         "affectsGlobalScope": false
       },
       "../src/resturants/entities/resturant.entity.ts": {
-        "version": "c9946746e39aa2217cd27778beff667fa8a59eaacd0f8e4462df318fc15ebb57",
+        "version": "ad343ca7e7fb4453959406bbc362d07b759305ac68257d563052641a21ec1ef6",
         "signature": "42f153c7cee942f947c7de5aca41e367d04918be6ec901b5268112dcd22a52df",
         "affectsGlobalScope": false
       },
@@ -6385,14 +6385,19 @@
         "signature": "ffa0f98bc9a2b28f35c5498fd0d8e147c9acf6e2da8c0dde3da909bb164e2664",
         "affectsGlobalScope": false
       },
+      "../src/resturants/dtos/update-resturant.dto.ts": {
+        "version": "2e782a1252483a9de004ea990eea2d9c1616c393d94a539c9277fe92fd53891a",
+        "signature": "62485a1eebc9077983de8a0fe17e086bf4d6d7fac7ef4af1e97b236a81633786",
+        "affectsGlobalScope": false
+      },
       "../src/resturants/resturants.service.ts": {
-        "version": "c398e94e5bc46af811c38f20b6fe3d10a9a5700da83030f9818cf4ba7e538153",
-        "signature": "7532ba1bb0bd439331e85ae092b2769bc2a461a0105f5d26542f31c7a205db49",
+        "version": "43257d17c09e82d0de23c0297583779429a5d4653a6170b098d8a30513364035",
+        "signature": "2b51a8ad84737ca4ddcd3d9f15e6109da2ebe51970143698bf4500776063a052",
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.resolver.ts": {
-        "version": "b5c3336e20afc0e6d1551c8dc3f59b0379daae6e2d6bb319d016d30e1a408e68",
-        "signature": "e63ffb2f0a85bea3b116b4cd944acf5840d3d95a8544b064b8d52c825fc87e7f",
+        "version": "0c2f3b17470876f5668c42b6f9e0ccfa812f3b53ea6243735de671b045cd33ce",
+        "signature": "598cd3deada0e33abf32224b7cde72c3f7c6a27167b86bad6563bf1fa86c359f",
         "affectsGlobalScope": false
       },
       "../src/resturants/resturants.module.ts": {
@@ -11903,6 +11908,10 @@
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/resturants/entities/resturant.entity.ts"
       ],
+      "../src/resturants/dtos/update-resturant.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/resturants/dtos/create-resturant.dto.ts"
+      ],
       "../src/resturants/entities/resturant.entity.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
@@ -11918,6 +11927,7 @@
       "../src/resturants/resturants.resolver.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/resturants/dtos/create-resturant.dto.ts",
+        "../src/resturants/dtos/update-resturant.dto.ts",
         "../src/resturants/entities/resturant.entity.ts",
         "../src/resturants/resturants.service.ts"
       ],
@@ -11926,6 +11936,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/resturants/dtos/create-resturant.dto.ts",
+        "../src/resturants/dtos/update-resturant.dto.ts",
         "../src/resturants/entities/resturant.entity.ts"
       ]
     },
@@ -17140,14 +17151,20 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/resturants/entities/resturant.entity.ts"
       ],
+      "../src/resturants/dtos/update-resturant.dto.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/resturants/dtos/create-resturant.dto.ts"
+      ],
       "../src/resturants/resturants.resolver.ts": [
         "../src/resturants/dtos/create-resturant.dto.ts",
+        "../src/resturants/dtos/update-resturant.dto.ts",
         "../src/resturants/entities/resturant.entity.ts",
         "../src/resturants/resturants.service.ts"
       ],
       "../src/resturants/resturants.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/resturants/dtos/create-resturant.dto.ts",
+        "../src/resturants/dtos/update-resturant.dto.ts",
         "../src/resturants/entities/resturant.entity.ts"
       ]
     },
@@ -18480,6 +18497,7 @@
       "../src/app.module.ts",
       "../src/main.ts",
       "../src/resturants/dtos/create-resturant.dto.ts",
+      "../src/resturants/dtos/update-resturant.dto.ts",
       "../src/resturants/entities/resturant.entity.ts",
       "../src/resturants/resturants.module.ts",
       "../src/resturants/resturants.resolver.ts",

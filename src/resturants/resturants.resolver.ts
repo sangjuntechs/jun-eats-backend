@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { createResturantDto } from './dtos/create-resturant.dto';
+import { UpdateResturantDto } from './dtos/update-resturant.dto';
 import { Resturant } from './entities/resturant.entity';
 import { ResturantService } from './resturants.service';
 
@@ -18,6 +19,18 @@ export class ResturantsResolver {
     console.log(createResturantDto);
     try {
       await this.resturantService.createResturant(createResturantDto);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+  @Mutation((returns) => Boolean)
+  async updateResturant(
+    @Args('input') UpdateResturantDto: UpdateResturantDto,
+  ): Promise<boolean> {
+    try {
+      await this.resturantService.updateResturant(UpdateResturantDto);
       return true;
     } catch (error) {
       console.log(error);

@@ -28,6 +28,9 @@ let ResturantService = class ResturantService {
         const newResturant = this.resturants.create(createResturantDto);
         return this.resturants.save(newResturant);
     }
+    updateResturant({ id, data }) {
+        return this.resturants.update(id, Object.assign({}, data));
+    }
 };
 ResturantService = __decorate([
     common_1.Injectable(),

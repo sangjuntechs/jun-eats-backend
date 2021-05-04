@@ -28,8 +28,8 @@ __decorate([
     __metadata("design:type", String)
 ], Resturant.prototype, "name", void 0);
 __decorate([
-    graphql_1.Field(() => Boolean),
-    typeorm_1.Column(),
+    graphql_1.Field(() => Boolean, { nullable: true }),
+    typeorm_1.Column({ default: true }),
     class_validator_1.IsBoolean(),
     class_validator_1.IsOptional(),
     __metadata("design:type", Boolean)
