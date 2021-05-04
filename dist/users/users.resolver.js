@@ -24,7 +24,26 @@ let UsersResolver = class UsersResolver {
     hi() {
         return true;
     }
-    createAccount(createAccountInput) { }
+    async createAccount(createAccountInput) {
+        try {
+            const error = await this.userService.createAccount(createAccountInput);
+            if (error) {
+                return {
+                    ok: false,
+                    error,
+                };
+            }
+            return {
+                ok: true,
+            };
+        }
+        catch (error) {
+            return {
+                error,
+                ok: false,
+            };
+        }
+    }
 };
 __decorate([
     graphql_1.Query((returns) => Boolean),
@@ -37,7 +56,7 @@ __decorate([
     __param(0, graphql_1.Args('input')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_account_dto_1.CreateAccountInput]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "createAccount", null);
 UsersResolver = __decorate([
     graphql_1.Resolver((of) => user_entity_1.User),

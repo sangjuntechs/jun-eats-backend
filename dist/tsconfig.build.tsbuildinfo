@@ -5836,13 +5836,13 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "2badbd430397cb2f918087c6fafa8ccf1ec3519dd6e7bff62c9cc469c35bce48",
-        "signature": "571d00a7f1ae27e64e287cdc1514ad11e65b180c7c5ad1c4292391d729e2e803",
+        "version": "c017d9b4e0063ab5d2117d26f1efba8ae0aaaae28f7e1b858f72c050fe080b76",
+        "signature": "88c20eebd00fc6a4a37da9159d94e5cdccde208c4babc024e752b3df6a589852",
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {
-        "version": "a40622c9814c8346e8a8896ebcb8146e16325f33c892360f648d13d4ecfbfb09",
-        "signature": "c4f0c259492077a21a2c7ab8a65627b6232cc5dd5b66aa0bbe06edb87cf2502b",
+        "version": "c74bd417a09477d7f469cc65316fa7e620ec7905b6f871acb4726f43e1a990bc",
+        "signature": "f3a854ce05db8290bdb0762807920bd1d3e08e310396fdfe9513bf34d3e0ddb2",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {

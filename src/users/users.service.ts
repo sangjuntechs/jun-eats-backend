@@ -10,7 +10,11 @@ export class UsersService {
     @InjectRepository(User) private readonly users: Repository<User>,
   ) {}
 
-  async createAccount({ email, password, role }: CreateAccountInput) {
+  async createAccount({
+    email,
+    password,
+    role,
+  }: CreateAccountInput): Promise<string | undefined> {
     //데이터베이스에 이메일이 있는지 확인
     //만약 없다면 유저 생성하고 비밀번호 hashing
     try {
@@ -18,12 +22,11 @@ export class UsersService {
       const exists = await this.users.findOne({ email });
       if (exists) {
         //error
-        return;
+        return '해당 이메일은 이미 사용 중입니다.';
       }
       await this.users.save(this.users.create({ email, password, role }));
-      return true;
     } catch (error) {
-      return;
+      return '계정을 생성할 수 없습니다.';
     }
   }
 }

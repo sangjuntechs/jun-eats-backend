@@ -21,17 +21,16 @@ let UsersService = class UsersService {
     constructor(users) {
         this.users = users;
     }
-    async createAccount({ email, password, role }) {
+    async createAccount({ email, password, role, }) {
         try {
             const exists = await this.users.findOne({ email });
             if (exists) {
-                return;
+                return '해당 이메일은 이미 사용 중입니다.';
             }
             await this.users.save(this.users.create({ email, password, role }));
-            return true;
         }
         catch (error) {
-            return;
+            return '계정을 생성할 수 없습니다.';
         }
     }
 };
