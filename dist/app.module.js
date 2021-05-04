@@ -9,11 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
-const resturants_module_1 = require("./resturants/resturants.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const config_1 = require("@nestjs/config");
 const Joi = require("joi");
-const resturant_entity_1 = require("./resturants/entities/resturant.entity");
+const users_module_1 = require("./users/users.module");
+const common_module_1 = require("./common/common.module");
+const user_entity_1 = require("./users/entities/user.entity");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -44,9 +45,10 @@ AppModule = __decorate([
                 database: process.env.DB_NAME,
                 synchronize: process.env.NODE_ENV !== 'prod',
                 logging: true,
-                entities: [resturant_entity_1.Resturant],
+                entities: [user_entity_1.User],
             }),
-            resturants_module_1.ResturantsModule,
+            users_module_1.UsersModule,
+            common_module_1.CommonModule,
         ],
         controllers: [],
         providers: [],
