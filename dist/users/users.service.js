@@ -25,12 +25,41 @@ let UsersService = class UsersService {
         try {
             const exists = await this.users.findOne({ email });
             if (exists) {
-                return '해당 이메일은 이미 사용 중입니다.';
+                return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
             }
             await this.users.save(this.users.create({ email, password, role }));
+            return { ok: true };
         }
         catch (error) {
-            return '계정을 생성할 수 없습니다.';
+            return { ok: false, error: '계정을 생성할 수 없습니다.' };
+        }
+    }
+    async login({ email, password, }) {
+        try {
+            const user = await this.users.findOne({ email });
+            if (!user) {
+                return {
+                    ok: false,
+                    error: '유저를 찾을 수 없습니다.',
+                };
+            }
+            const passwordCorrect = await user.checkPassword(password);
+            if (!passwordCorrect) {
+                return {
+                    ok: false,
+                    error: '비밀번호가 일치하지 않습니다.',
+                };
+            }
+            return {
+                ok: true,
+                token: 'sangjuntoken',
+            };
+        }
+        catch (error) {
+            return {
+                ok: false,
+                error,
+            };
         }
     }
 };

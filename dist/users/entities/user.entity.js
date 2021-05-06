@@ -15,6 +15,7 @@ const core_entity_1 = require("../../common/entities/core.entity");
 const typeorm_1 = require("typeorm");
 const bcrypt = require("bcrypt");
 const common_1 = require("@nestjs/common");
+const class_validator_1 = require("class-validator");
 var UserRole;
 (function (UserRole) {
     UserRole[UserRole["Client"] = 0] = "Client";
@@ -32,10 +33,21 @@ let User = class User extends core_entity_1.CoreEntity {
             throw new common_1.InternalServerErrorException();
         }
     }
+    async checkPassword(aPassword) {
+        try {
+            const ok = await bcrypt.compare(aPassword, this.password);
+            return ok;
+        }
+        catch (error) {
+            console.log(error);
+            throw new common_1.InternalServerErrorException();
+        }
+    }
 };
 __decorate([
     graphql_1.Field((type) => String),
     typeorm_1.Column(),
+    class_validator_1.IsEmail(),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
@@ -46,6 +58,7 @@ __decorate([
 __decorate([
     graphql_1.Field((type) => UserRole),
     typeorm_1.Column({ type: 'enum', enum: UserRole }),
+    class_validator_1.IsEnum(UserRole),
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
 __decorate([
