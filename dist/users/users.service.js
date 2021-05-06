@@ -19,10 +19,12 @@ const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
 const jwt = require("jsonwebtoken");
 const config_1 = require("@nestjs/config");
+const jwt_service_1 = require("../jwt/jwt.service");
 let UsersService = class UsersService {
-    constructor(users, config) {
+    constructor(users, config, jwtService) {
         this.users = users;
         this.config = config;
+        this.jwtService = jwtService;
     }
     async createAccount({ email, password, role, }) {
         try {
@@ -71,7 +73,8 @@ UsersService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(user_entity_1.User)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        config_1.ConfigService])
+        config_1.ConfigService,
+        jwt_service_1.JwtService])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map
