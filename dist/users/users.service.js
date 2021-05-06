@@ -17,9 +17,12 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
+const jwt = require("jsonwebtoken");
+const config_1 = require("@nestjs/config");
 let UsersService = class UsersService {
-    constructor(users) {
+    constructor(users, config) {
         this.users = users;
+        this.config = config;
     }
     async createAccount({ email, password, role, }) {
         try {
@@ -50,9 +53,10 @@ let UsersService = class UsersService {
                     error: '비밀번호가 일치하지 않습니다.',
                 };
             }
+            const token = jwt.sign({ id: user.id }, this.config.get('SECRET_KEY'));
             return {
                 ok: true,
-                token: 'sangjuntoken',
+                token,
             };
         }
         catch (error) {
@@ -66,7 +70,8 @@ let UsersService = class UsersService {
 UsersService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(user_entity_1.User)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        config_1.ConfigService])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

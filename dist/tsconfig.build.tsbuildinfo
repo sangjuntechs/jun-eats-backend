@@ -6475,9 +6475,14 @@
         "signature": "f82579de3ed3aa77ea4af5390c4100a5665f3e0bacc7f327f47173e9e87a0f55",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/jsonwebtoken/index.d.ts": {
+        "version": "82cffc446a000271c34cdf657c5aaa397c87183762431efe5e09660979cce586",
+        "signature": "82cffc446a000271c34cdf657c5aaa397c87183762431efe5e09660979cce586",
+        "affectsGlobalScope": false
+      },
       "../src/users/users.service.ts": {
-        "version": "d2aa644ae88c8efa95dff7714e46d5980d134641db2cc0074e3f264bf4bcbb1c",
-        "signature": "abc58772fff4b97adc65e4a1804fd037b4c2f0bf5762e9e452bc1744ae5e3291",
+        "version": "974cb62df8c6b203f250e2a3c029054e8104ad5abdd048906bb8a41d037f15e5",
+        "signature": "bdc9701928498911b9e5a1b18d7cd8715e34dd3833a6c34e2159638784a6e4a7",
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {
@@ -6486,7 +6491,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
-        "version": "64edec4f4a74115338eb5e5207f4742c0c84993916873ca800db884a675979dd",
+        "version": "7bd17fd6d6a58b3df89c6585bbdb173703a3cb047b44a8803b47ef9cece91cc8",
         "signature": "aa1725e38b5a0b4009f6a74f296f173e7926c119a60454dbd2e523861735df69",
         "affectsGlobalScope": false
       },
@@ -6496,7 +6501,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "611c2a94fd1696ec972f61213f472299f70debe8d8df61215c4918a206d5b8ba",
+        "version": "d6c130ad1d5d150b2c6ca93b2e10bef7ae5452093420a9eb8a0538dd76a0ab28",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -8544,6 +8549,9 @@
       "../node_modules/@types/jest/index.d.ts": [
         "../node_modules/jest-diff/build/index.d.ts",
         "../node_modules/pretty-format/build/index.d.ts"
+      ],
+      "../node_modules/@types/jsonwebtoken/index.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/koa-compose/index.d.ts": [
         "../node_modules/@types/koa/index.d.ts"
@@ -12020,6 +12028,7 @@
       ],
       "../src/users/users.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/users.resolver.ts",
@@ -12034,7 +12043,9 @@
       ],
       "../src/users/users.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/@types/jsonwebtoken/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
@@ -13852,6 +13863,9 @@
       "../node_modules/@types/jest/index.d.ts": [
         "../node_modules/jest-diff/build/index.d.ts",
         "../node_modules/pretty-format/build/index.d.ts"
+      ],
+      "../node_modules/@types/jsonwebtoken/index.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/koa-compose/index.d.ts": [
         "../node_modules/@types/koa/index.d.ts"
@@ -17287,6 +17301,7 @@
         "../src/users/users.service.ts"
       ],
       "../src/users/users.service.ts": [
+        "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
@@ -17750,6 +17765,7 @@
       "../node_modules/@types/jest/index.d.ts",
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/json5/index.d.ts",
+      "../node_modules/@types/jsonwebtoken/index.d.ts",
       "../node_modules/@types/keygrip/index.d.ts",
       "../node_modules/@types/koa-compose/index.d.ts",
       "../node_modules/@types/koa/index.d.ts",
