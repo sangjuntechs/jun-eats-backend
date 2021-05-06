@@ -2,13 +2,11 @@ import { Repository } from 'typeorm';
 import { CreateAccountInput } from './dtos/create-account.dto';
 import { LoginInput } from './dtos/login.dto';
 import { User } from './entities/user.entity';
-import { ConfigService } from '@nestjs/config';
 import { JwtService } from 'src/jwt/jwt.service';
 export declare class UsersService {
     private readonly users;
-    private readonly config;
     private readonly jwtService;
-    constructor(users: Repository<User>, config: ConfigService, jwtService: JwtService);
+    constructor(users: Repository<User>, jwtService: JwtService);
     createAccount({ email, password, role, }: CreateAccountInput): Promise<{
         ok: boolean;
         error?: string;
