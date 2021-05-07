@@ -6460,6 +6460,11 @@
         "signature": "5e7c72bd7de531e1fb484feca4adfb07b400233a226a9ef13490d1334df08bc4",
         "affectsGlobalScope": false
       },
+      "../src/auth/auth-user.decorator.ts": {
+        "version": "211f60fd5ebe9e8a259f1258f1d6c9520ccab64c065c5883a511c14ae5a7e5da",
+        "signature": "cd1e457df3b82a86ca479fcda6e01c8ff3874ebdbdc812db7f6734d8561f4788",
+        "affectsGlobalScope": false
+      },
       "../src/auth/auth.guard.ts": {
         "version": "6e431ef5ba5b5cd5f7f867d3692ba8cede2ca1ddf6e8c08633441011ba156257",
         "signature": "89cbe528206d39a629cf5e072460519f1305bf844df942749e376a24a983d0dd",
@@ -6506,8 +6511,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {
-        "version": "7f17a60cf45684fb0e18c1b25e5ab630ccfbdffa0452d30b1d09bf36222dbcaf",
-        "signature": "a04f855fad83af09bbbc2ea06f9e2340447a5c798ffa2843d2e8180c463ea131",
+        "version": "55940bbc06db22bd8a874d99cb3d51094044bb2892ffb72351b95b012de11de6",
+        "signature": "6ce532a48fb3e968b9654ddfba2719d964d50f0e65a11355a9a5c16bb489cf4a",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -11994,6 +11999,10 @@
         "../src/users/entities/user.entity.ts",
         "../src/users/users.module.ts"
       ],
+      "../src/auth/auth-user.decorator.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
       "../src/auth/auth.guard.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts"
@@ -12097,7 +12106,7 @@
       "../src/users/users.resolver.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
-        "../node_modules/rxjs/index.d.ts",
+        "../src/auth/auth-user.decorator.ts",
         "../src/auth/auth.guard.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
@@ -17379,6 +17388,7 @@
       "../src/users/users.resolver.ts": [
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/entities/user.entity.ts",
         "../src/users/users.service.ts"
       ],
       "../src/users/users.service.ts": [
@@ -18718,6 +18728,7 @@
       "../node_modules/zen-observable-ts/lib/types.d.ts",
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts",
       "../src/app.module.ts",
+      "../src/auth/auth-user.decorator.ts",
       "../src/auth/auth.guard.ts",
       "../src/auth/auth.module.ts",
       "../src/common/common.module.ts",

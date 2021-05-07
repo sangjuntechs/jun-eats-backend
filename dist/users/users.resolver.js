@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersResolver = void 0;
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
+const auth_user_decorator_1 = require("../auth/auth-user.decorator");
 const auth_guard_1 = require("../auth/auth.guard");
 const create_account_dto_1 = require("./dtos/create-account.dto");
 const login_dto_1 = require("./dtos/login.dto");
@@ -49,7 +50,9 @@ let UsersResolver = class UsersResolver {
             };
         }
     }
-    me() { }
+    me(authUser) {
+        return authUser;
+    }
 };
 __decorate([
     graphql_1.Query((returns) => Boolean),
@@ -74,8 +77,9 @@ __decorate([
 __decorate([
     graphql_1.Query((returns) => user_entity_1.User),
     common_1.UseGuards(auth_guard_1.AuthGuard),
+    __param(0, auth_user_decorator_1.AuthUser()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [user_entity_1.User]),
     __metadata("design:returntype", void 0)
 ], UsersResolver.prototype, "me", null);
 UsersResolver = __decorate([
