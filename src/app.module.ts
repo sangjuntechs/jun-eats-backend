@@ -18,6 +18,7 @@ import { jwtMiddleWare } from './jwt/jwt.middleware';
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: true,
+      context: ({ req }) => ({ user: req['user'] }),
     }),
     ConfigModule.forRoot({
       isGlobal: true,
@@ -57,7 +58,7 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(jwtMiddleWare).forRoutes({
       path: '/graphql',
-      method: RequestMethod.ALL,
+      method: RequestMethod.POST,
     });
   }
 }

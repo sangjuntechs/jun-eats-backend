@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { TimeoutError } from 'rxjs';
 import {
   CreateAccountInput,
@@ -44,7 +44,11 @@ export class UsersResolver {
     }
   }
   @Query((returns) => User)
-  me() {
-    return true;
+  me(@Context() context) {
+    if (!context.user) {
+      return;
+    } else {
+      return context.user;
+    }
   }
 }

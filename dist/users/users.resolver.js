@@ -47,8 +47,13 @@ let UsersResolver = class UsersResolver {
             };
         }
     }
-    me() {
-        return true;
+    me(context) {
+        if (!context.user) {
+            return;
+        }
+        else {
+            return context.user;
+        }
     }
 };
 __decorate([
@@ -73,8 +78,9 @@ __decorate([
 ], UsersResolver.prototype, "login", null);
 __decorate([
     graphql_1.Query((returns) => user_entity_1.User),
+    __param(0, graphql_1.Context()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UsersResolver.prototype, "me", null);
 UsersResolver = __decorate([

@@ -21,7 +21,7 @@ let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(jwt_middleware_1.jwtMiddleWare).forRoutes({
             path: '/graphql',
-            method: common_1.RequestMethod.ALL,
+            method: common_1.RequestMethod.POST,
         });
     }
 };
@@ -30,6 +30,7 @@ AppModule = __decorate([
         imports: [
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,
+                context: ({ req }) => ({ user: req['user'] }),
             }),
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
