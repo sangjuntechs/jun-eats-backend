@@ -47,6 +47,8 @@ let UsersResolver = class UsersResolver {
             };
         }
     }
+    me() {
+    }
 };
 __decorate([
     graphql_1.Query((returns) => Boolean),
@@ -68,6 +70,12 @@ __decorate([
     __metadata("design:paramtypes", [login_dto_1.LoginInput]),
     __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "login", null);
+__decorate([
+    graphql_1.Query(returns => user_entity_1.User),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UsersResolver.prototype, "me", null);
 UsersResolver = __decorate([
     graphql_1.Resolver((of) => user_entity_1.User),
     __metadata("design:paramtypes", [users_service_1.UsersService])
