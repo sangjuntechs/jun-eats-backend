@@ -55,6 +55,7 @@ export class UsersService {
           error: '비밀번호가 일치하지 않습니다.',
         };
       }
+      //JWT만들고 유저에게 전달
       const token = this.jwtService.sign(user.id);
       return {
         ok: true,
@@ -66,6 +67,8 @@ export class UsersService {
         error,
       };
     }
-    //JWT만들고 유저에게 전달
+  }
+  async findById(id: number): Promise<User> {
+    return this.users.findOne({ id });
   }
 }

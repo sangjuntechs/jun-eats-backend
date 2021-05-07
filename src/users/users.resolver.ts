@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { TimeoutError } from 'rxjs';
 import {
   CreateAccountInput,
   CreateAccountOutput,
@@ -42,8 +43,8 @@ export class UsersResolver {
       };
     }
   }
-  @Query(returns => User)
+  @Query((returns) => User)
   me() {
-    
+    return true;
   }
 }

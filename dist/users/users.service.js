@@ -65,6 +65,9 @@ let UsersService = class UsersService {
             };
         }
     }
+    async findById(id) {
+        return this.users.findOne({ id });
+    }
 };
 UsersService = __decorate([
     common_1.Injectable(),

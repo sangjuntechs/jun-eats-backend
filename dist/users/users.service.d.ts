@@ -16,4 +16,5 @@ export declare class UsersService {
         error?: string;
         token?: string;
     }>;
+    findById(id: number): Promise<User>;
 }

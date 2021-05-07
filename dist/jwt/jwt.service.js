@@ -23,6 +23,9 @@ let JwtService = class JwtService {
     sign(userId) {
         return jwt.sign({ id: userId }, this.options.privateKey);
     }
+    verify(token) {
+        return jwt.verify(token, this.options.privateKey);
+    }
 };
 JwtService = __decorate([
     common_1.Injectable(),
