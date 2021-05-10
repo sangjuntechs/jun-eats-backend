@@ -6526,13 +6526,13 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "fe92528423ec206cf79956b1c29b749c7ade448f7052d440dae9d1210c0f3c43",
+        "version": "85eeb1baefb83c21ae922739456c09a284c2102f53f13107697ce9bc52537135",
         "signature": "beef0612439a9afe17869d2310b45d816aacd2f125a19ca4cb66da84fb6180b1",
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {
-        "version": "8312f26c8963b2e3d7a13abccfee8a0e3eeb4b4e42a33bff29fe6e4fd36e2035",
-        "signature": "beffdf96d4e8de8576d880fbadf66131cff6be9ed725c3f86ccd667c79c4df47",
+        "version": "332686110eb025cb696eeb566359d070347d3a516f545699fc954163f1db3850",
+        "signature": "1a43602d3d7b785c35c5a6a41d475089f01487c90f5d190b4c3eedc3a8005aa3",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {

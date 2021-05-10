@@ -88,8 +88,19 @@ let UsersResolver = class UsersResolver {
             };
         }
     }
-    verifyEmail(verifyEmailInput) {
-        this.userService.verifyEmail(verifyEmailInput.code);
+    async verifyEmail(verifyEmailInput) {
+        try {
+            this.userService.verifyEmail(verifyEmailInput.code);
+            return {
+                ok: true,
+            };
+        }
+        catch (error) {
+            return {
+                ok: false,
+                error,
+            };
+        }
     }
 };
 __decorate([
@@ -143,7 +154,7 @@ __decorate([
     __param(0, graphql_1.Args('input')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [verify_email_dto_1.VerifyEmailInput]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "verifyEmail", null);
 UsersResolver = __decorate([
     graphql_1.Resolver((of) => user_entity_1.User),

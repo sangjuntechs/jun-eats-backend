@@ -2,7 +2,7 @@ import { CreateAccountInput, CreateAccountOutput } from './dtos/create-account.d
 import { EditProfileInput, EditProfileOutput } from './dtos/edit-profile.dto';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { UserProfileInput, UserProfileOutput } from './dtos/user-profile.dto';
-import { VerifyEmailInput } from './dtos/verify-email.dto';
+import { VerifyEmailInput, VerifyEmailOutput } from './dtos/verify-email.dto';
 import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 export declare class UsersResolver {
@@ -14,5 +14,5 @@ export declare class UsersResolver {
     me(authUser: User): User;
     userProfile(userProfileInput: UserProfileInput): Promise<UserProfileOutput>;
     editProfile(authUser: User, editProfileInput: EditProfileInput): Promise<EditProfileOutput>;
-    verifyEmail(verifyEmailInput: VerifyEmailInput): void;
+    verifyEmail(verifyEmailInput: VerifyEmailInput): Promise<VerifyEmailOutput>;
 }
