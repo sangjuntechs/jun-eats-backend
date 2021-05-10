@@ -85,6 +85,14 @@ let UsersService = class UsersService {
         }
         return this.users.save(user);
     }
+    async verifyEmail(code) {
+        const verification = await this.verifications.findOne({ code }, { relations: ['user'] });
+        if (verification) {
+            verification.user.verified = true;
+            this.users.save(verification.user);
+        }
+        return false;
+    }
 };
 UsersService = __decorate([
     common_1.Injectable(),

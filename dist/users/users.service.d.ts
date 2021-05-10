@@ -21,4 +21,5 @@ export declare class UsersService {
     }>;
     findById(id: number): Promise<User>;
     editProfile(userId: number, { email, password }: EditProfileInput): Promise<User>;
+    verifyEmail(code: string): Promise<boolean>;
 }
