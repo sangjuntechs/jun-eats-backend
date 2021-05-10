@@ -10,11 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Verification = void 0;
+const uuid_1 = require("uuid");
 const graphql_1 = require("@nestjs/graphql");
 const core_entity_1 = require("../../common/entities/core.entity");
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("./user.entity");
 let Verification = class Verification extends core_entity_1.CoreEntity {
+    createCode() {
+        this.code = uuid_1.v4();
+    }
 };
 __decorate([
     typeorm_1.Column(),
@@ -26,6 +30,12 @@ __decorate([
     typeorm_1.JoinColumn(),
     __metadata("design:type", user_entity_1.User)
 ], Verification.prototype, "user", void 0);
+__decorate([
+    typeorm_1.BeforeInsert(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Verification.prototype, "createCode", null);
 Verification = __decorate([
     graphql_1.InputType({ isAbstract: true }),
     graphql_1.ObjectType(),

@@ -3,4 +3,5 @@ import { User } from './user.entity';
 export declare class Verification extends CoreEntity {
     code: string;
     user: User;
+    createCode(): void;
 }

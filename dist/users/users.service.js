@@ -18,9 +18,11 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
 const jwt_service_1 = require("../jwt/jwt.service");
+const verification_entity_1 = require("./entities/verification.entity");
 let UsersService = class UsersService {
-    constructor(users, jwtService) {
+    constructor(users, verifications, jwtService) {
         this.users = users;
+        this.verifications = verifications;
         this.jwtService = jwtService;
     }
     async createAccount({ email, password, role, }) {
@@ -29,7 +31,10 @@ let UsersService = class UsersService {
             if (exists) {
                 return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
             }
-            await this.users.save(this.users.create({ email, password, role }));
+            const user = await this.users.save(this.users.create({ email, password, role }));
+            await this.verifications.save(this.verifications.create({
+                user,
+            }));
             return { ok: true };
         }
         catch (error) {
@@ -82,7 +87,9 @@ let UsersService = class UsersService {
 UsersService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(user_entity_1.User)),
+    __param(1, typeorm_1.InjectRepository(verification_entity_1.Verification)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         jwt_service_1.JwtService])
 ], UsersService);
 exports.UsersService = UsersService;
