@@ -37,6 +37,10 @@ export class User extends CoreEntity {
   @IsEnum(UserRole)
   role: UserRole;
 
+  @Field((type) => Boolean)
+  @Column({ default: false })
+  Verified: boolean;
+
   //typeORM listner BeforeInsert
   @BeforeInsert()
   @BeforeUpdate()

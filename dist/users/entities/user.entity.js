@@ -62,6 +62,11 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
 __decorate([
+    graphql_1.Field((type) => Boolean),
+    typeorm_1.Column({ default: false }),
+    __metadata("design:type", Boolean)
+], User.prototype, "Verified", void 0);
+__decorate([
     typeorm_1.BeforeInsert(),
     typeorm_1.BeforeUpdate(),
     __metadata("design:type", Function),
