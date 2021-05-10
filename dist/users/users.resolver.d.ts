@@ -1,5 +1,6 @@
 import { CreateAccountInput, CreateAccountOutput } from './dtos/create-account.dto';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
+import { UserProfileInput } from './dtos/user-profile.dto';
 import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 export declare class UsersResolver {
@@ -9,4 +10,5 @@ export declare class UsersResolver {
     createAccount(createAccountInput: CreateAccountInput): Promise<CreateAccountOutput>;
     login(loginInput: LoginInput): Promise<LoginOutput>;
     me(authUser: User): User;
+    userProfile(userProfileInput: UserProfileInput): Promise<User>;
 }

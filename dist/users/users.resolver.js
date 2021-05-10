@@ -19,6 +19,7 @@ const auth_user_decorator_1 = require("../auth/auth-user.decorator");
 const auth_guard_1 = require("../auth/auth.guard");
 const create_account_dto_1 = require("./dtos/create-account.dto");
 const login_dto_1 = require("./dtos/login.dto");
+const user_profile_dto_1 = require("./dtos/user-profile.dto");
 const user_entity_1 = require("./entities/user.entity");
 const users_service_1 = require("./users.service");
 let UsersResolver = class UsersResolver {
@@ -53,6 +54,9 @@ let UsersResolver = class UsersResolver {
     me(authUser) {
         return authUser;
     }
+    userProfile(userProfileInput) {
+        return this.userService.findById(userProfileInput.userId);
+    }
 };
 __decorate([
     graphql_1.Query((returns) => Boolean),
@@ -82,6 +86,14 @@ __decorate([
     __metadata("design:paramtypes", [user_entity_1.User]),
     __metadata("design:returntype", void 0)
 ], UsersResolver.prototype, "me", null);
+__decorate([
+    common_1.UseGuards(auth_guard_1.AuthGuard),
+    graphql_1.Query((returns) => user_entity_1.User),
+    __param(0, graphql_1.Args()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_profile_dto_1.UserProfileInput]),
+    __metadata("design:returntype", void 0)
+], UsersResolver.prototype, "userProfile", null);
 UsersResolver = __decorate([
     graphql_1.Resolver((of) => user_entity_1.User),
     __metadata("design:paramtypes", [users_service_1.UsersService])

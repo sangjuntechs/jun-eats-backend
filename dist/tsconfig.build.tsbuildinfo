@@ -5821,7 +5821,7 @@
         "affectsGlobalScope": false
       },
       "../src/common/entities/core.entity.ts": {
-        "version": "b786ad087a7c55d125c2dd74a43514f54a55f705caba367fda72d3094a073850",
+        "version": "28816dcdbb2decf78affd72235e920ca27ab345969ab48993b386f8d27727e09",
         "signature": "c0caa42f283bfe98f474a3ba8c04d2163cfc3a8e441be7e0f679a8baa0ee4605",
         "affectsGlobalScope": false
       },
@@ -6485,6 +6485,11 @@
         "signature": "f82579de3ed3aa77ea4af5390c4100a5665f3e0bacc7f327f47173e9e87a0f55",
         "affectsGlobalScope": false
       },
+      "../src/users/dtos/user-profile.dto.ts": {
+        "version": "f5c20e586edea8d5295025fb3bdbb465761ef37000658407f192af081813925e",
+        "signature": "59a3da7e78eac2487c98767b1d303ea2680032e20d507eadf18c11db0a724623",
+        "affectsGlobalScope": false
+      },
       "../src/jwt/jwt.interfaces.ts": {
         "version": "af9db64b18d460836af433221484b0ef4c00023651cdd16d70b0263cd4bc119f",
         "signature": "6e5e2d6a8de1e6fae6fcf0af22b0acd739727c505274906774e034b16a8e7c88",
@@ -6511,8 +6516,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {
-        "version": "55940bbc06db22bd8a874d99cb3d51094044bb2892ffb72351b95b012de11de6",
-        "signature": "6ce532a48fb3e968b9654ddfba2719d964d50f0e65a11355a9a5c16bb489cf4a",
+        "version": "c16dbf38807f915d2d50c96d6a99e3088e6e86e14ff2bb4aacd712b7bd7d63e8",
+        "signature": "49a790cbdb73972e05f30d121ec86331c7eddeac245eb9b6505d2bea4a065c1b",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -12088,6 +12093,9 @@
         "../src/common/dtos/output.dto.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/dtos/user-profile.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
       "../src/users/entities/user.entity.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -12110,6 +12118,7 @@
         "../src/auth/auth.guard.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/dtos/user-profile.dto.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/users.service.ts"
       ],
@@ -17388,6 +17397,7 @@
       "../src/users/users.resolver.ts": [
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/dtos/user-profile.dto.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/users.service.ts"
       ],
@@ -18748,6 +18758,7 @@
       "../src/resturants/resturants.service.ts",
       "../src/users/dtos/create-account.dto.ts",
       "../src/users/dtos/login.dto.ts",
+      "../src/users/dtos/user-profile.dto.ts",
       "../src/users/entities/user.entity.ts",
       "../src/users/users.module.ts",
       "../src/users/users.resolver.ts",
