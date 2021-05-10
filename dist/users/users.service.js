@@ -43,7 +43,7 @@ let UsersService = class UsersService {
     }
     async login({ email, password, }) {
         try {
-            const user = await this.users.findOne({ email });
+            const user = await this.users.findOne({ email }, { select: ['id', 'password'] });
             if (!user) {
                 return {
                     ok: false,
@@ -57,6 +57,7 @@ let UsersService = class UsersService {
                     error: '비밀번호가 일치하지 않습니다.',
                 };
             }
+            console.log(user);
             const token = this.jwtService.sign(user.id);
             return {
                 ok: true,

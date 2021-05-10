@@ -52,7 +52,10 @@ export class UsersService {
   }: LoginInput): Promise<{ ok: boolean; error?: string; token?: string }> {
     //email을 가진 user찾기
     try {
-      const user = await this.users.findOne({ email });
+      const user = await this.users.findOne(
+        { email },
+        { select: ['id', 'password'] },
+      );
       if (!user) {
         return {
           ok: false,
@@ -68,6 +71,7 @@ export class UsersService {
         };
       }
       //JWT만들고 유저에게 전달
+      console.log(user);
       const token = this.jwtService.sign(user.id);
       return {
         ok: true,

@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], Verification.prototype, "code", void 0);
 __decorate([
-    typeorm_1.OneToOne((type) => user_entity_1.User),
+    typeorm_1.OneToOne((type) => user_entity_1.User, { onDelete: 'CASCADE' }),
     typeorm_1.JoinColumn(),
     __metadata("design:type", user_entity_1.User)
 ], Verification.prototype, "user", void 0);
