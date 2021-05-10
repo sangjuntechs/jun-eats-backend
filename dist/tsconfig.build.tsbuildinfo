@@ -6516,8 +6516,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "f2c1b46c961e8d595cc463506bc67a9b54513ebfb0770054d59ecbde3c4cf4c7",
-        "signature": "b2ea6b36543069bb507f103a402c7573e3c3dea5c8ecf03b9d1a87c883b86da0",
+        "version": "4fb6873948bb3653e644d3233ca5bf1c31f5081996988070db9f3b77d59ea1c2",
+        "signature": "ceb7c5bd508f3efb1572825a942f2778b7d1773c01a780ade59308d2e4fceb4c",
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {

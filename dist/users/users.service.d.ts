@@ -18,5 +18,5 @@ export declare class UsersService {
         token?: string;
     }>;
     findById(id: number): Promise<User>;
-    editProfile(userId: number, editProfileInput: EditProfileInput): Promise<import("typeorm").UpdateResult>;
+    editProfile(userId: number, { email, password }: EditProfileInput): Promise<User>;
 }
