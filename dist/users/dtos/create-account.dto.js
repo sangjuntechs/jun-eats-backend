@@ -20,7 +20,7 @@ CreateAccountInput = __decorate([
     graphql_1.InputType()
 ], CreateAccountInput);
 exports.CreateAccountInput = CreateAccountInput;
-let CreateAccountOutput = class CreateAccountOutput extends output_dto_1.MutationOutput {
+let CreateAccountOutput = class CreateAccountOutput extends output_dto_1.CoreOutput {
 };
 CreateAccountOutput = __decorate([
     graphql_1.ObjectType()

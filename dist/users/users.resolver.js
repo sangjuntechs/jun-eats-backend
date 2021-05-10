@@ -18,6 +18,7 @@ const graphql_1 = require("@nestjs/graphql");
 const auth_user_decorator_1 = require("../auth/auth-user.decorator");
 const auth_guard_1 = require("../auth/auth.guard");
 const create_account_dto_1 = require("./dtos/create-account.dto");
+const edit_profile_dto_1 = require("./dtos/edit-profile.dto");
 const login_dto_1 = require("./dtos/login.dto");
 const user_profile_dto_1 = require("./dtos/user-profile.dto");
 const user_entity_1 = require("./entities/user.entity");
@@ -72,6 +73,17 @@ let UsersResolver = class UsersResolver {
             };
         }
     }
+    async editProfile(authUser, editProfileInput) {
+        try {
+            await this.userService.editProfile(authUser.id, editProfileInput);
+        }
+        catch (error) {
+            return {
+                ok: false,
+                error,
+            };
+        }
+    }
 };
 __decorate([
     graphql_1.Query((returns) => Boolean),
@@ -109,6 +121,16 @@ __decorate([
     __metadata("design:paramtypes", [user_profile_dto_1.UserProfileInput]),
     __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "userProfile", null);
+__decorate([
+    common_1.UseGuards(auth_guard_1.AuthGuard),
+    graphql_1.Mutation((returns) => edit_profile_dto_1.EditProfileOutput),
+    __param(0, auth_user_decorator_1.AuthUser()),
+    __param(1, graphql_1.Args('input')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_entity_1.User,
+        edit_profile_dto_1.EditProfileInput]),
+    __metadata("design:returntype", Promise)
+], UsersResolver.prototype, "editProfile", null);
 UsersResolver = __decorate([
     graphql_1.Resolver((of) => user_entity_1.User),
     __metadata("design:paramtypes", [users_service_1.UsersService])

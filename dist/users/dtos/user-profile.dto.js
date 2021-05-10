@@ -23,7 +23,7 @@ UserProfileInput = __decorate([
     graphql_1.ArgsType()
 ], UserProfileInput);
 exports.UserProfileInput = UserProfileInput;
-let UserProfileOutput = class UserProfileOutput extends output_dto_1.MutationOutput {
+let UserProfileOutput = class UserProfileOutput extends output_dto_1.CoreOutput {
 };
 __decorate([
     graphql_1.Field((type) => user_entity_1.User, { nullable: true }),
