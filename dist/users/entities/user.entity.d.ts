@@ -8,7 +8,7 @@ export declare class User extends CoreEntity {
     email: string;
     password: string;
     role: UserRole;
-    Verified: boolean;
+    verified: boolean;
     hashPassword(): Promise<void>;
     checkPassword(aPassword: string): Promise<boolean>;
 }

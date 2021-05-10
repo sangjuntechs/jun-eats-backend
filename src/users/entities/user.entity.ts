@@ -39,7 +39,7 @@ export class User extends CoreEntity {
 
   @Field((type) => Boolean)
   @Column({ default: false })
-  Verified: boolean;
+  verified: boolean;
 
   //typeORM listner BeforeInsert
   @BeforeInsert()
