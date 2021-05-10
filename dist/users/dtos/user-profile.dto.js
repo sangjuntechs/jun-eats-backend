@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserProfileInput = void 0;
+exports.UserProfileOutput = exports.UserProfileInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const output_dto_1 = require("../../common/dtos/output.dto");
+const user_entity_1 = require("../entities/user.entity");
 let UserProfileInput = class UserProfileInput {
 };
 __decorate([
@@ -21,4 +23,14 @@ UserProfileInput = __decorate([
     graphql_1.ArgsType()
 ], UserProfileInput);
 exports.UserProfileInput = UserProfileInput;
+let UserProfileOutput = class UserProfileOutput extends output_dto_1.MutationOutput {
+};
+__decorate([
+    graphql_1.Field((type) => user_entity_1.User, { nullable: true }),
+    __metadata("design:type", user_entity_1.User)
+], UserProfileOutput.prototype, "user", void 0);
+UserProfileOutput = __decorate([
+    graphql_1.ObjectType()
+], UserProfileOutput);
+exports.UserProfileOutput = UserProfileOutput;
 //# sourceMappingURL=user-profile.dto.js.map

@@ -54,8 +54,23 @@ let UsersResolver = class UsersResolver {
     me(authUser) {
         return authUser;
     }
-    userProfile(userProfileInput) {
-        return this.userService.findById(userProfileInput.userId);
+    async userProfile(userProfileInput) {
+        try {
+            const user = await this.userService.findById(userProfileInput.userId);
+            if (!user) {
+                throw Error();
+            }
+            return {
+                ok: true,
+                user,
+            };
+        }
+        catch (error) {
+            return {
+                error: '유저를 찾을 수 없습니다.',
+                ok: false,
+            };
+        }
     }
 };
 __decorate([
@@ -88,11 +103,11 @@ __decorate([
 ], UsersResolver.prototype, "me", null);
 __decorate([
     common_1.UseGuards(auth_guard_1.AuthGuard),
-    graphql_1.Query((returns) => user_entity_1.User),
+    graphql_1.Query((returns) => user_profile_dto_1.UserProfileOutput),
     __param(0, graphql_1.Args()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_profile_dto_1.UserProfileInput]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "userProfile", null);
 UsersResolver = __decorate([
     graphql_1.Resolver((of) => user_entity_1.User),

@@ -9,7 +9,7 @@ import {
   CreateAccountOutput,
 } from './dtos/create-account.dto';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
-import { UserProfileInput } from './dtos/user-profile.dto';
+import { UserProfileInput, UserProfileOutput } from './dtos/user-profile.dto';
 import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 
@@ -54,8 +54,24 @@ export class UsersResolver {
   }
 
   @UseGuards(AuthGuard)
-  @Query((returns) => User)
-  userProfile(@Args() userProfileInput: UserProfileInput) {
-    return this.userService.findById(userProfileInput.userId);
+  @Query((returns) => UserProfileOutput)
+  async userProfile(
+    @Args() userProfileInput: UserProfileInput,
+  ): Promise<UserProfileOutput> {
+    try {
+      const user = await this.userService.findById(userProfileInput.userId);
+      if (!user) {
+        throw Error();
+      }
+      return {
+        ok: true,
+        user,
+      };
+    } catch (error) {
+      return {
+        error: '유저를 찾을 수 없습니다.',
+        ok: false,
+      };
+    }
   }
 }
