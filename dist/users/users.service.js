@@ -68,8 +68,8 @@ let UsersService = class UsersService {
     async findById(id) {
         return this.users.findOne({ id });
     }
-    async editProfile(userId, { email, password }) {
-        this.users.update(userId, { email, password });
+    async editProfile(userId, editProfileInput) {
+        return this.users.update(userId, Object.assign({}, editProfileInput));
     }
 };
 UsersService = __decorate([

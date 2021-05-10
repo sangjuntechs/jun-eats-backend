@@ -76,6 +76,9 @@ let UsersResolver = class UsersResolver {
     async editProfile(authUser, editProfileInput) {
         try {
             await this.userService.editProfile(authUser.id, editProfileInput);
+            return {
+                ok: true,
+            };
         }
         catch (error) {
             return {

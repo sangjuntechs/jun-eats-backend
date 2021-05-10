@@ -63,6 +63,7 @@ __decorate([
 ], User.prototype, "role", void 0);
 __decorate([
     typeorm_1.BeforeInsert(),
+    typeorm_1.BeforeUpdate(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
