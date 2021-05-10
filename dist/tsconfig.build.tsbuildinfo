@@ -6526,7 +6526,7 @@
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.middleware.ts": {
-        "version": "5801c15e0d1b11273dc9186c8cb12b342efa8587e77f00c04e85739a09876330",
+        "version": "c74802bac4d7e24c34d7b7125052ea33fd221363bab9539c41d315954017e7a7",
         "signature": "7475d5e87a9e8b9b2d62c38e5b5ea4b58519ec2d514994aea564bb33840b7813",
         "affectsGlobalScope": false
       },
