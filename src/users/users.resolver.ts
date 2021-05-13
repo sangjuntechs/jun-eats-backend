@@ -33,14 +33,7 @@ export class UsersResolver {
   }
   @Mutation((returns) => LoginOutput)
   async login(@Args('input') loginInput: LoginInput): Promise<LoginOutput> {
-    try {
-      return this.userService.login(loginInput);
-    } catch (error) {
-      return {
-        ok: false,
-        error,
-      };
-    }
+    return this.userService.login(loginInput);
   }
   @Query((returns) => User)
   @UseGuards(AuthGuard)
@@ -62,32 +55,13 @@ export class UsersResolver {
     @AuthUser() authUser: User,
     @Args('input') editProfileInput: EditProfileInput,
   ): Promise<EditProfileOutput> {
-    try {
-      await this.userService.editProfile(authUser.id, editProfileInput);
-      return {
-        ok: true,
-      };
-    } catch (error) {
-      return {
-        ok: false,
-        error,
-      };
-    }
+    return this.userService.editProfile(authUser.id, editProfileInput);
   }
   @Mutation((returns) => VerifyEmailOutput)
   async verifyEmail(
-    @Args('input') verifyEmailInput: VerifyEmailInput,
+    @Args('input') { code }: VerifyEmailInput,
   ): Promise<VerifyEmailOutput> {
-    try {
-      this.userService.verifyEmail(verifyEmailInput.code);
-      return {
-        ok: true,
-      };
-    } catch (error) {
-      return {
-        ok: false,
-        error,
-      };
-    }
+    const { ok, error } = await this.userService.verifyEmail(code);
+    return { ok, error };
   }
 }

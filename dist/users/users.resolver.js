@@ -35,15 +35,7 @@ let UsersResolver = class UsersResolver {
         return this.userService.createAccount(createAccountInput);
     }
     async login(loginInput) {
-        try {
-            return this.userService.login(loginInput);
-        }
-        catch (error) {
-            return {
-                ok: false,
-                error,
-            };
-        }
+        return this.userService.login(loginInput);
     }
     me(authUser) {
         return authUser;
@@ -52,32 +44,11 @@ let UsersResolver = class UsersResolver {
         return this.userService.findById(userProfileInput.userId);
     }
     async editProfile(authUser, editProfileInput) {
-        try {
-            await this.userService.editProfile(authUser.id, editProfileInput);
-            return {
-                ok: true,
-            };
-        }
-        catch (error) {
-            return {
-                ok: false,
-                error,
-            };
-        }
+        return this.userService.editProfile(authUser.id, editProfileInput);
     }
-    async verifyEmail(verifyEmailInput) {
-        try {
-            this.userService.verifyEmail(verifyEmailInput.code);
-            return {
-                ok: true,
-            };
-        }
-        catch (error) {
-            return {
-                ok: false,
-                error,
-            };
-        }
+    async verifyEmail({ code }) {
+        const { ok, error } = await this.userService.verifyEmail(code);
+        return { ok, error };
     }
 };
 __decorate([

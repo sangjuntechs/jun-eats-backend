@@ -14,5 +14,5 @@ export declare class UsersResolver {
     me(authUser: User): User;
     userProfile(userProfileInput: UserProfileInput): Promise<UserProfileOutput>;
     editProfile(authUser: User, editProfileInput: EditProfileInput): Promise<EditProfileOutput>;
-    verifyEmail(verifyEmailInput: VerifyEmailInput): Promise<VerifyEmailOutput>;
+    verifyEmail({ code }: VerifyEmailInput): Promise<VerifyEmailOutput>;
 }
