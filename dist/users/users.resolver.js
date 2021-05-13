@@ -32,15 +32,7 @@ let UsersResolver = class UsersResolver {
         return true;
     }
     async createAccount(createAccountInput) {
-        try {
-            return this.userService.createAccount(createAccountInput);
-        }
-        catch (error) {
-            return {
-                error,
-                ok: false,
-            };
-        }
+        return this.userService.createAccount(createAccountInput);
     }
     async login(loginInput) {
         try {
@@ -57,22 +49,7 @@ let UsersResolver = class UsersResolver {
         return authUser;
     }
     async userProfile(userProfileInput) {
-        try {
-            const user = await this.userService.findById(userProfileInput.userId);
-            if (!user) {
-                throw Error();
-            }
-            return {
-                ok: true,
-                user,
-            };
-        }
-        catch (error) {
-            return {
-                error: '유저를 찾을 수 없습니다.',
-                ok: false,
-            };
-        }
+        return this.userService.findById(userProfileInput.userId);
     }
     async editProfile(authUser, editProfileInput) {
         try {

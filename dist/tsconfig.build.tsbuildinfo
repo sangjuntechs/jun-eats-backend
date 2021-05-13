@@ -6526,12 +6526,12 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "85eeb1baefb83c21ae922739456c09a284c2102f53f13107697ce9bc52537135",
-        "signature": "beef0612439a9afe17869d2310b45d816aacd2f125a19ca4cb66da84fb6180b1",
+        "version": "de35a6bb923879c9b58316fb26da3522a2aef0221268fa1875c07f03ac5a583e",
+        "signature": "6b9079e060f23dab4be858ae9ae8d83cd172f8778ac7744178d0a17002331321",
         "affectsGlobalScope": false
       },
       "../src/users/users.resolver.ts": {
-        "version": "332686110eb025cb696eeb566359d070347d3a516f545699fc954163f1db3850",
+        "version": "5c95c7880e9077b8cc62c80ce389e59827587d1deed83f718074fec407400585",
         "signature": "1a43602d3d7b785c35c5a6a41d475089f01487c90f5d190b4c3eedc3a8005aa3",
         "affectsGlobalScope": false
       },
@@ -12167,6 +12167,8 @@
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/dtos/user-profile.dto.ts",
+        "../src/users/dtos/verify-email.dto.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/entities/verification.entity.ts"
       ]
@@ -17466,6 +17468,8 @@
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/dtos/user-profile.dto.ts",
+        "../src/users/dtos/verify-email.dto.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/entities/verification.entity.ts"
       ]

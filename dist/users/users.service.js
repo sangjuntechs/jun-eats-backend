@@ -41,7 +41,7 @@ let UsersService = class UsersService {
             return { ok: false, error: '계정을 생성할 수 없습니다.' };
         }
     }
-    async login({ email, password, }) {
+    async login({ email, password }) {
         try {
             const user = await this.users.findOne({ email }, { select: ['id', 'password'] });
             if (!user) {
@@ -72,19 +72,38 @@ let UsersService = class UsersService {
         }
     }
     async findById(id) {
-        return this.users.findOne({ id });
+        try {
+            const user = await this.users.findOne({ id });
+            if (user) {
+                return {
+                    ok: true,
+                    user: user,
+                };
+            }
+        }
+        catch (error) {
+            return { ok: false, error: 'User Not Found' };
+        }
     }
     async editProfile(userId, { email, password }) {
-        const user = await this.users.findOne(userId);
-        if (email) {
-            user.email = email;
-            user.verified = false;
-            await this.verifications.save(this.verifications.create({ user }));
+        try {
+            const user = await this.users.findOne(userId);
+            if (email) {
+                user.email = email;
+                user.verified = false;
+                await this.verifications.save(this.verifications.create({ user }));
+            }
+            if (password) {
+                user.password = password;
+            }
+            await this.users.save(user);
+            return {
+                ok: true,
+            };
         }
-        if (password) {
-            user.password = password;
+        catch (error) {
+            return { ok: false, error: '업데이트를 할 수 없습니다.' };
         }
-        return this.users.save(user);
     }
     async verifyEmail(code) {
         try {
@@ -92,13 +111,12 @@ let UsersService = class UsersService {
             if (verification) {
                 verification.user.verified = true;
                 this.users.save(verification.user);
-                return true;
+                return { ok: true };
             }
-            throw new Error();
+            return { ok: false, error: '인증을 찾을 수 없습니다.' };
         }
         catch (error) {
-            console.log(error);
-            return false;
+            return { ok: false, error };
         }
     }
 };
