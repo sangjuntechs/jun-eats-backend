@@ -110,7 +110,8 @@ let UsersService = class UsersService {
             const verification = await this.verifications.findOne({ code }, { relations: ['user'] });
             if (verification) {
                 verification.user.verified = true;
-                this.users.save(verification.user);
+                await this.users.save(verification.user);
+                await this.users.delete(verification.id);
                 return { ok: true };
             }
             return { ok: false, error: '인증을 찾을 수 없습니다.' };

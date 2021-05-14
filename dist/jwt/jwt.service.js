@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JwtService = void 0;
 const common_1 = require("@nestjs/common");
-const jwt_constants_1 = require("./jwt.constants");
+const common_constant_1 = require("../common/common.constant");
 const jwt = require("jsonwebtoken");
 let JwtService = class JwtService {
     constructor(options) {
@@ -29,7 +29,7 @@ let JwtService = class JwtService {
 };
 JwtService = __decorate([
     common_1.Injectable(),
-    __param(0, common_1.Inject(jwt_constants_1.CONFIG_OPTIONS)),
+    __param(0, common_1.Inject(common_constant_1.CONFIG_OPTIONS)),
     __metadata("design:paramtypes", [Object])
 ], JwtService);
 exports.JwtService = JwtService;
