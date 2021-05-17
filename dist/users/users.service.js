@@ -19,11 +19,13 @@ const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
 const jwt_service_1 = require("../jwt/jwt.service");
 const verification_entity_1 = require("./entities/verification.entity");
+const mail_service_1 = require("../mail/mail.service");
 let UsersService = class UsersService {
-    constructor(users, verifications, jwtService) {
+    constructor(users, verifications, jwtService, mailService) {
         this.users = users;
         this.verifications = verifications;
         this.jwtService = jwtService;
+        this.mailService = mailService;
     }
     async createAccount({ email, password, role, }) {
         try {
@@ -32,9 +34,10 @@ let UsersService = class UsersService {
                 return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
             }
             const user = await this.users.save(this.users.create({ email, password, role }));
-            await this.verifications.save(this.verifications.create({
+            const verification = await this.verifications.save(this.verifications.create({
                 user,
             }));
+            this.mailService.sendVerificationEmail(user.email, verification.code);
             return { ok: true };
         }
         catch (error) {
@@ -91,7 +94,8 @@ let UsersService = class UsersService {
             if (email) {
                 user.email = email;
                 user.verified = false;
-                await this.verifications.save(this.verifications.create({ user }));
+                const verification = await this.verifications.save(this.verifications.create({ user }));
+                this.mailService.sendVerificationEmail(user.email, verification.code);
             }
             if (password) {
                 user.password = password;
@@ -127,7 +131,8 @@ UsersService = __decorate([
     __param(1, typeorm_1.InjectRepository(verification_entity_1.Verification)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         typeorm_2.Repository,
-        jwt_service_1.JwtService])
+        jwt_service_1.JwtService,
+        mail_service_1.MailService])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

@@ -7,11 +7,13 @@ import { EditProfileInput, EditProfileOutput } from './dtos/edit-profile.dto';
 import { Verification } from './entities/verification.entity';
 import { UserProfileOutput } from './dtos/user-profile.dto';
 import { VerifyEmailOutput } from './dtos/verify-email.dto';
+import { MailService } from 'src/mail/mail.service';
 export declare class UsersService {
     private readonly users;
     private readonly verifications;
     private readonly jwtService;
-    constructor(users: Repository<User>, verifications: Repository<Verification>, jwtService: JwtService);
+    private readonly mailService;
+    constructor(users: Repository<User>, verifications: Repository<Verification>, jwtService: JwtService, mailService: MailService);
     createAccount({ email, password, role, }: CreateAccountInput): Promise<CreateAccountOutput>;
     login({ email, password }: LoginInput): Promise<LoginOutput>;
     findById(id: number): Promise<UserProfileOutput>;

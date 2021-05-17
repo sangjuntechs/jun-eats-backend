@@ -10,6 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailModule = void 0;
 const common_1 = require("@nestjs/common");
 const common_constant_1 = require("../common/common.constant");
+const mail_service_1 = require("./mail.service");
 let MailModule = MailModule_1 = class MailModule {
     static forRoot(options) {
         return {
@@ -19,13 +20,15 @@ let MailModule = MailModule_1 = class MailModule {
                     provide: common_constant_1.CONFIG_OPTIONS,
                     useValue: options,
                 },
+                mail_service_1.MailService,
             ],
-            exports: [],
+            exports: [mail_service_1.MailService],
         };
     }
 };
 MailModule = MailModule_1 = __decorate([
-    common_1.Module({})
+    common_1.Module({}),
+    common_1.Global()
 ], MailModule);
 exports.MailModule = MailModule;
 //# sourceMappingURL=mail.module.js.map
