@@ -35,7 +35,6 @@ export class UsersService {
     try {
       //데이터베이스에 같은 이메일이 있는지 확인
       const exists = await this.users.findOne({ email });
-      console.log(exists);
       if (exists) {
         //error
         return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
@@ -77,7 +76,6 @@ export class UsersService {
         };
       }
       //JWT만들고 유저에게 전달
-      console.log(user);
       const token = this.jwtService.sign(user.id);
       return {
         ok: true,
@@ -86,7 +84,7 @@ export class UsersService {
     } catch (error) {
       return {
         ok: false,
-        error,
+        error: '로그인 할 수 없습니다.',
       };
     }
   }
