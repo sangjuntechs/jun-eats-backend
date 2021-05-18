@@ -26,7 +26,7 @@ let MailService = class MailService {
         form.append('from', `Sangjun from JunEats <mailgun@${this.options.domain}>`);
         form.append('to', `devjun0421@gmail.com`);
         form.append('subject', subject);
-        form.append('text', `안녕하세요 ${email}님, JunEats입니다. ${content} 코드 "${code}"를 작성하고 인증해주십시오.`);
+        form.append('text', `안녕하세요 ${email}님, SangjunTech - JunEats입니다. ${content} 코드 "${code}"를 작성하고 인증해주십시오.`);
         try {
             await got_1.default(`https://api.mailgun.net/v3/${this.options.domain}/messages`, {
                 method: 'POST',

@@ -25,7 +25,7 @@ export class MailService {
     form.append('subject', subject);
     form.append(
       'text',
-      `안녕하세요 ${email}님, JunEats입니다. ${content} 코드 "${code}"를 작성하고 인증해주십시오.`,
+      `안녕하세요 ${email}님, SangjunTech - JunEats입니다. ${content} 코드 "${code}"를 작성하고 인증해주십시오.`,
     );
     try {
       await got(`https://api.mailgun.net/v3/${this.options.domain}/messages`, {

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { Global } from '@nestjs/common';
 import { Field, ObjectType } from '@nestjs/graphql';
 import {
   CreateDateColumn,

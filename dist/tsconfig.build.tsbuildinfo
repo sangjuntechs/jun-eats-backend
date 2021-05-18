@@ -6616,7 +6616,7 @@
         "affectsGlobalScope": false
       },
       "../src/mail/mail.service.ts": {
-        "version": "8fb92450638b873d781cb33381cf10d2e95478e5db9688a6356d4e55b5ce1d91",
+        "version": "1c1ed3d673f07166af6876a066caa7cabac469a38db7d6f32ce7eb64166a3cc7",
         "signature": "e93faffccc88b40324fb26fd60ebe9a80368c4a9a58207cbd7ab841423b5f81c",
         "affectsGlobalScope": false
       },
