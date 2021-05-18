@@ -35,6 +35,7 @@ export class UsersService {
     try {
       //데이터베이스에 같은 이메일이 있는지 확인
       const exists = await this.users.findOne({ email });
+      console.log(exists);
       if (exists) {
         //error
         return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
