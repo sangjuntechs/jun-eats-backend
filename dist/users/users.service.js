@@ -30,6 +30,7 @@ let UsersService = class UsersService {
     async createAccount({ email, password, role, }) {
         try {
             const exists = await this.users.findOne({ email });
+            console.log(exists);
             if (exists) {
                 return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
             }

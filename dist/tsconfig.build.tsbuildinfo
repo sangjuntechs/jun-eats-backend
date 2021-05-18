@@ -5821,7 +5821,7 @@
         "affectsGlobalScope": false
       },
       "../src/common/entities/core.entity.ts": {
-        "version": "28816dcdbb2decf78affd72235e920ca27ab345969ab48993b386f8d27727e09",
+        "version": "64958594c5cf6f7c7e9e9aaa10003ea6952dcfd6595090c74836e61c95d0f733",
         "signature": "c0caa42f283bfe98f474a3ba8c04d2163cfc3a8e441be7e0f679a8baa0ee4605",
         "affectsGlobalScope": false
       },
@@ -6621,7 +6621,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "9e8949bbb74937c58f4c2d0b1b05e991c77cc7149f3a45cd8d36253215611265",
+        "version": "7bea04932630f5953f8ffa710cd67b5fbde5f96ae5626513f9491afe3db8fda1",
         "signature": "24a3267286f4dce966b5d1e1c6e0d13b2a97f419c32b78fbf7cf3d769f4335e3",
         "affectsGlobalScope": false
       },
@@ -12216,6 +12216,7 @@
         "../node_modules/@nestjs/graphql/index.d.ts"
       ],
       "../src/common/entities/core.entity.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/typeorm/index.d.ts"
       ],
