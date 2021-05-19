@@ -142,7 +142,7 @@ export class UsersService {
       }
       return { ok: false, error: '인증을 찾을 수 없습니다.' };
     } catch (error) {
-      return { ok: false, error };
+      return { ok: false, error: '인증을 할 수 없습니다.' };
     }
   }
 }

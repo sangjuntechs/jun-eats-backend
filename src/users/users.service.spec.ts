@@ -275,11 +275,22 @@ describe('UsersService', () => {
         verified: true,
       });
       expect(verificationRepository.delete).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.delete).toHaveBeenCalledWith(
+        mockVerification.id,
+      );
       expect(result).toEqual({ ok: true });
     });
 
-    it.todo('인증코드가 없는 경우');
+    it('인증코드가 없는 경우', async () => {
+      verificationRepository.findOne.mockResolvedValue(undefined);
+      const result = await service.verifyEmail('');
+      expect(result).toEqual({ ok: false, error: '인증을 찾을 수 없습니다.' });
+    });
 
-    it.todo('인증에 실패한 경우');
+    it('인증에 실패한 경우', async () => {
+      verificationRepository.findOne.mockRejectedValue(new Error());
+      const result = await service.verifyEmail('');
+      expect(result).toEqual({ ok: false, error: '인증을 할 수 없습니다.' });
+    });
   });
 });
