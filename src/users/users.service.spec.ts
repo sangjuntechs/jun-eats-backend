@@ -11,6 +11,7 @@ const mockRepository = () => ({
   findOne: jest.fn(),
   save: jest.fn(),
   create: jest.fn(),
+  findOneOrFail: jest.fn(),
 });
 
 const mockJwtService = {
@@ -169,7 +170,59 @@ describe('UsersService', () => {
     });
   });
 
-  it.todo('findById');
-  it.todo('editProfile');
+  describe('아이디로 유저 찾기', () => {
+    const findByIdArg = {
+      id: 1,
+    };
+    it('존재하는 유저를 찾았을 경우', async () => {
+      usersRepository.findOneOrFail.mockResolvedValue(findByIdArg);
+      const result = await service.findById(1);
+      expect(result).toEqual({ ok: true, user: findByIdArg });
+    });
+
+    it('유저를 찾지 못했을 경우', async () => {
+      usersRepository.findOneOrFail.mockRejectedValue(new Error());
+      const result = await service.findById(1);
+      expect(result).toEqual({ ok: false, error: '유저를 찾을 수 없습니다.' });
+    });
+  });
+  describe('유저정보 수정', () => {
+    it('이메일 변경 성공', async () => {
+      const oldUser = {
+        email: 'sangjun@old.com',
+        verified: true,
+      };
+      const editProfileArg = {
+        userId: 1,
+        input: { email: 'sangjun@new.com' },
+      };
+      const newVerification = {
+        code: 'code',
+      };
+      const newUser = {
+        verified: false,
+        email: editProfileArg.input.email,
+      };
+
+      usersRepository.findOne.mockResolvedValue(oldUser);
+      verificationRepository.create.mockReturnValue(newVerification);
+      verificationRepository.save.mockResolvedValue(newVerification);
+
+      await service.editProfile(editProfileArg.userId, editProfileArg.input);
+      expect(usersRepository.findOne).toHaveBeenCalledTimes(1);
+      expect(usersRepository.findOne).toHaveBeenCalledWith(
+        editProfileArg.userId,
+      );
+      expect(verificationRepository.create).toHaveBeenLastCalledWith({
+        user: newUser,
+      });
+      expect(verificationRepository.save).toHaveBeenCalledWith(newVerification);
+
+      expect(mailService.sendVerificationEmail).toHaveBeenCalledWith(
+        newUser.email,
+        newVerification.code,
+      );
+    });
+  });
   it.todo('verifyEmail');
 });
