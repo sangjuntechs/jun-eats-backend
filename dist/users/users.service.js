@@ -30,7 +30,6 @@ let UsersService = class UsersService {
     async createAccount({ email, password, role, }) {
         try {
             const exists = await this.users.findOne({ email });
-            console.log(exists);
             if (exists) {
                 return { ok: false, error: '같은 이메일이 이미 존재합니다.' };
             }
@@ -61,7 +60,6 @@ let UsersService = class UsersService {
                     error: '비밀번호가 일치하지 않습니다.',
                 };
             }
-            console.log(user);
             const token = this.jwtService.sign(user.id);
             return {
                 ok: true,
@@ -71,13 +69,13 @@ let UsersService = class UsersService {
         catch (error) {
             return {
                 ok: false,
-                error,
+                error: '로그인 할 수 없습니다.',
             };
         }
     }
     async findById(id) {
         try {
-            const user = await this.users.findOne({ id });
+            const user = await this.users.findOneOrFail({ id });
             if (user) {
                 return {
                     ok: true,
@@ -86,7 +84,7 @@ let UsersService = class UsersService {
             }
         }
         catch (error) {
-            return { ok: false, error: 'User Not Found' };
+            return { ok: false, error: '유저를 찾을 수 없습니다.' };
         }
     }
     async editProfile(userId, { email, password }) {
@@ -116,7 +114,7 @@ let UsersService = class UsersService {
             if (verification) {
                 verification.user.verified = true;
                 await this.users.save(verification.user);
-                await this.users.delete(verification.id);
+                await this.verifications.delete(verification.id);
                 return { ok: true };
             }
             return { ok: false, error: '인증을 찾을 수 없습니다.' };

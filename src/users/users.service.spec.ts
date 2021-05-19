@@ -12,6 +12,7 @@ const mockRepository = () => ({
   save: jest.fn(),
   create: jest.fn(),
   findOneOrFail: jest.fn(),
+  delete: jest.fn(),
 });
 
 const mockJwtService = {
@@ -187,7 +188,7 @@ describe('UsersService', () => {
     });
   });
   describe('유저정보 수정', () => {
-    it('이메일 변경 성공', async () => {
+    it('이메일 변경', async () => {
       const oldUser = {
         email: 'sangjun@old.com',
         verified: true,
@@ -223,6 +224,62 @@ describe('UsersService', () => {
         newVerification.code,
       );
     });
+    it('비밀번호 변경', async () => {
+      const editProfileArg = {
+        userId: 1,
+        input: { password: 'newPassword' },
+      };
+      usersRepository.findOne.mockResolvedValue({ password: 'oldPassword' });
+      const result = await service.editProfile(
+        editProfileArg.userId,
+        editProfileArg.input,
+      );
+      expect(usersRepository.save).toHaveBeenCalledTimes(1);
+      expect(usersRepository.save).toHaveBeenCalledWith(editProfileArg.input);
+      expect(result).toEqual({ ok: true });
+    });
+
+    it('유저정보 수정 실패하는 경우', async () => {
+      const editProfileArg = {
+        userId: 1,
+        input: { password: 'newPassword' },
+      };
+      usersRepository.findOne.mockRejectedValue(new Error());
+      const result = await service.editProfile(
+        editProfileArg.userId,
+        editProfileArg.input,
+      );
+      expect(result).toEqual({
+        ok: false,
+        error: '업데이트를 할 수 없습니다.',
+      });
+    });
   });
-  it.todo('verifyEmail');
+  describe('이메일 인증', () => {
+    it('인증에 성공한 경우', async () => {
+      const mockVerification = {
+        user: {
+          verified: false,
+        },
+        id: 1,
+      };
+      verificationRepository.findOne.mockResolvedValue(mockVerification);
+      const result = await service.verifyEmail('');
+      expect(verificationRepository.findOne).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.findOne).toHaveBeenCalledWith(
+        expect.any(Object),
+        expect.any(Object),
+      );
+      expect(usersRepository.save).toHaveBeenCalledTimes(1);
+      expect(usersRepository.save).toHaveBeenCalledWith({
+        verified: true,
+      });
+      expect(verificationRepository.delete).toHaveBeenCalledTimes(1);
+      expect(result).toEqual({ ok: true });
+    });
+
+    it.todo('인증코드가 없는 경우');
+
+    it.todo('인증에 실패한 경우');
+  });
 });
