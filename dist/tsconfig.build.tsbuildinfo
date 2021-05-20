@@ -6621,7 +6621,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "576f319659cefdce294599519107e4598f27130fd89c6c6545306ecbbce5f92f",
+        "version": "55ded10969b01fb64598547fba3a5e0bbff765862cd02aefc867259d00fff2c5",
         "signature": "24a3267286f4dce966b5d1e1c6e0d13b2a97f419c32b78fbf7cf3d769f4335e3",
         "affectsGlobalScope": false
       },
@@ -6641,7 +6641,7 @@
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.middleware.ts": {
-        "version": "c74802bac4d7e24c34d7b7125052ea33fd221363bab9539c41d315954017e7a7",
+        "version": "b7e1f34d182d7f268588712fa80868748303d846fbe018a00ef89d4cf25e6941",
         "signature": "7475d5e87a9e8b9b2d62c38e5b5ea4b58519ec2d514994aea564bb33840b7813",
         "affectsGlobalScope": false
       },

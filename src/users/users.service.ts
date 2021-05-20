@@ -91,12 +91,10 @@ export class UsersService {
   async findById(id: number): Promise<UserProfileOutput> {
     try {
       const user = await this.users.findOneOrFail({ id });
-      if (user) {
-        return {
-          ok: true,
-          user: user,
-        };
-      }
+      return {
+        ok: true,
+        user: user,
+      };
     } catch (error) {
       return { ok: false, error: '유저를 찾을 수 없습니다.' };
     }
@@ -111,6 +109,7 @@ export class UsersService {
       if (email) {
         user.email = email;
         user.verified = false;
+        await this.verifications.delete({ user: { id: user.id } });
         const verification = await this.verifications.save(
           this.verifications.create({ user }),
         );
