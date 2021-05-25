@@ -4,10 +4,12 @@ import { JwtService } from './jwt.service';
 import * as jwt from 'jsonwebtoken';
 
 const TEST_KEY = 'testKey';
+const USER_ID = 1;
 
 jest.mock('jsonwebtoken', () => {
   return {
     sign: jest.fn(() => 'TOKEN'),
+    verify: jest.fn(() => ({ id: USER_ID })),
   };
 });
 
@@ -31,11 +33,19 @@ describe('JWT Service', () => {
   });
   describe('sign', () => {
     it('사인된 토큰을 리턴하는가', () => {
-      const ID = 1;
-      service.sign(ID);
+      const token = service.sign(USER_ID);
+      expect(typeof token).toBe('string');
       expect(jwt.sign).toHaveBeenCalledTimes(1);
-      expect(jwt.sign).toHaveBeenCalledWith({ id: ID }, TEST_KEY);
+      expect(jwt.sign).toHaveBeenCalledWith({ id: USER_ID }, TEST_KEY);
     });
   });
-  it.todo('verify');
+  describe('verify', () => {
+    it('decoded된 토큰이 리턴되는가', () => {
+      const TOKEN = 'TOKEN';
+      const decodedToken = service.verify(TOKEN);
+      expect(decodedToken).toEqual({ id: USER_ID });
+      expect(jwt.verify).toHaveBeenCalledTimes(1);
+      expect(jwt.verify).toHaveBeenCalledWith(TOKEN, TEST_KEY);
+    });
+  });
 });
