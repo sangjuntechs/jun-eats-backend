@@ -28,16 +28,16 @@ let MailService = class MailService {
         form.append('subject', subject);
         form.append('text', `안녕하세요 ${email}님, SangjunTech - JunEats입니다. ${content} 코드 "${code}"를 작성하고 인증해주십시오.`);
         try {
-            await got_1.default(`https://api.mailgun.net/v3/${this.options.domain}/messages`, {
-                method: 'POST',
+            await got_1.default.post(`https://api.mailgun.net/v3/${this.options.domain}/messages`, {
                 headers: {
                     Authorization: `Basic ${Buffer.from(`api:${this.options.apiKey}`).toString('base64')}`,
                 },
                 body: form,
             });
+            return true;
         }
         catch (error) {
-            console.log(error);
+            return false;
         }
     }
     sendVerificationEmail(email, code) {

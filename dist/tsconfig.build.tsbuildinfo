@@ -6616,8 +6616,8 @@
         "affectsGlobalScope": false
       },
       "../src/mail/mail.service.ts": {
-        "version": "1c1ed3d673f07166af6876a066caa7cabac469a38db7d6f32ce7eb64166a3cc7",
-        "signature": "e93faffccc88b40324fb26fd60ebe9a80368c4a9a58207cbd7ab841423b5f81c",
+        "version": "77afd3d48aaa23f5cb8b895eaab808404b5640ae698fee9f6c87b3ead1b3b6cc",
+        "signature": "b61807ebedc55cc7d214d20c1448a7da74c14007218ee180a1b4db6d8d7bba13",
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
@@ -6651,7 +6651,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "12e615282c99cafe3515843435c7e3416e1468f71ab2661cacc7a49aa82ac36c",
+        "version": "38ffc904678a9adae5447a70a206b07b5e254346b8167b90bf4b0170362256b8",
         "signature": "9e55d69c2879e4c1f6039d177c0daf79a72435ac51ec7d4f46fc72e8b0c503d6",
         "affectsGlobalScope": false
       },
