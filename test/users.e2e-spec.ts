@@ -2,8 +2,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
-import { getConnection } from 'typeorm';
+import { getConnection, Repository } from 'typeorm';
 import * as request from 'supertest';
+import { User } from 'src/users/entities/user.entity';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
 jest.mock('got', () => {
   return {
@@ -20,6 +22,7 @@ const GRAPHQL_ENDPOINT = '/graphql';
 
 describe('UserModule (e2e)', () => {
   let app: INestApplication;
+  let usersRepository: Repository<User>;
   let jwtToken: string;
 
   beforeAll(async () => {
@@ -28,6 +31,7 @@ describe('UserModule (e2e)', () => {
     }).compile();
 
     app = module.createNestApplication();
+    usersRepository = module.get<Repository<User>>(getRepositoryToken(User));
     await app.init();
   });
   afterAll(async () => {
@@ -133,7 +137,63 @@ describe('UserModule (e2e)', () => {
         });
     });
   });
-  it.todo('userProfile');
+  describe('userProfile', () => {
+    let userId: number;
+    beforeAll(async () => {
+      const [user] = await usersRepository.find();
+      userId = user.id;
+    });
+    it('유저의 프로필을 찾는 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .set('X-JWT', jwtToken)
+        .send({
+          query: `
+          {
+            userProfile(userId:${userId}) {
+              ok
+              error
+              user {
+                id
+              }
+            }
+          }
+        `,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.userProfile.ok).toBe(true);
+          expect(res.body.data.userProfile.error).toBe(null);
+          expect(res.body.data.userProfile.user.id).toBe(userId);
+        });
+    });
+    it('유저의 프로필을 찾지 못하는 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .set('X-JWT', jwtToken)
+        .send({
+          query: `
+          {
+            userProfile(userId:${userId + 1}) {
+              ok
+              error
+              user {
+                id
+              }
+            }
+          }
+        `,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.userProfile.ok).toBe(false);
+          expect(res.body.data.userProfile.error).toBe(
+            '유저를 찾을 수 없습니다.',
+          );
+          expect(res.body.data.userProfile.user).toBe(null);
+        });
+    });
+  });
   it.todo('me');
   it.todo('verifyEmail');
   it.todo('editProfile');
