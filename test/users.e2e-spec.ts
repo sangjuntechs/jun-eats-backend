@@ -6,6 +6,7 @@ import { getConnection, Repository } from 'typeorm';
 import * as request from 'supertest';
 import { User } from 'src/users/entities/user.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { Verification } from 'src/users/entities/verification.entity';
 
 jest.mock('got', () => {
   return {
@@ -23,6 +24,7 @@ const GRAPHQL_ENDPOINT = '/graphql';
 describe('UserModule (e2e)', () => {
   let app: INestApplication;
   let usersRepository: Repository<User>;
+  let verificationsRepository: Repository<Verification>;
   let jwtToken: string;
 
   beforeAll(async () => {
@@ -32,6 +34,9 @@ describe('UserModule (e2e)', () => {
 
     app = module.createNestApplication();
     usersRepository = module.get<Repository<User>>(getRepositoryToken(User));
+    verificationsRepository = module.get<Repository<Verification>>(
+      getRepositoryToken(Verification),
+    );
     await app.init();
   });
   afterAll(async () => {
@@ -229,6 +234,75 @@ describe('UserModule (e2e)', () => {
         });
     });
   });
-  it.todo('verifyEmail');
-  it.todo('editProfile');
+  describe('editProfile', () => {
+    it('이메일은 변경하는 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .set('X-JWT', jwtToken)
+        .send({
+          query: `mutation {
+          editProfile(input:{
+            email:"sangjun@gmail.com"
+          }) {
+            ok
+            error
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.editProfile.ok).toBe(true);
+          expect(res.body.data.editProfile.error).toBe(null);
+        });
+    });
+  });
+
+  describe('verifyEmail', () => {
+    let verificationCode: string;
+    beforeAll(async () => {
+      const [verification] = await verificationsRepository.find();
+      verificationCode = verification.code;
+    });
+    it('올바른 인증코드를 입력하는 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .send({
+          query: `mutation {
+          verifyEmail(input:{
+            code: "${verificationCode}"
+          }) {
+            ok
+            error
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.verifyEmail.ok).toBe(true);
+          expect(res.body.data.verifyEmail.error).toBe(null);
+        });
+    });
+
+    it('틀린 인증코드를 입력하는 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .send({
+          query: `mutation {
+          verifyEmail(input:{
+            code: "${verificationCode}12"
+          }) {
+            ok
+            error
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.verifyEmail.ok).toBe(false);
+          expect(res.body.data.verifyEmail.error).toBe(
+            '인증을 찾을 수 없습니다.',
+          );
+        });
+    });
+  });
 });

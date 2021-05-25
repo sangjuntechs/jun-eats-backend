@@ -48,7 +48,7 @@ let User = class User extends core_entity_1.CoreEntity {
 };
 __decorate([
     graphql_1.Field((type) => String),
-    typeorm_1.Column(),
+    typeorm_1.Column({ unique: true }),
     class_validator_1.IsEmail(),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);

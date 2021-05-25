@@ -6456,7 +6456,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/entities/user.entity.ts": {
-        "version": "8bd0cbe6328ea7fbb721d3402445a0099fffa837d0078599d097a60079275b25",
+        "version": "b9242cee0c9ec35d481e669a4caecd33148339f2f662f51c9965a184b7b9c196",
         "signature": "7112a615fb1899681aa560fa6e11d075b79560a1c65127c5e4914397433382cc",
         "affectsGlobalScope": false
       },
