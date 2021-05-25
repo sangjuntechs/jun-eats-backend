@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
@@ -10,10 +11,16 @@ jest.mock('got', () => {
   };
 });
 
+const testUser = {
+  email: 'sangjun@naver.com',
+  password: 'tkdwns12',
+};
+
 const GRAPHQL_ENDPOINT = '/graphql';
 
 describe('UserModule (e2e)', () => {
   let app: INestApplication;
+  let jwtToken: string;
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -30,15 +37,14 @@ describe('UserModule (e2e)', () => {
   });
 
   describe('createAccount', () => {
-    const EMAIL = 'sangjun@naver.com';
     it('계정 생성', () => {
       return request(app.getHttpServer())
         .post(GRAPHQL_ENDPOINT)
         .send({
           query: `mutation {
           createAccount(input:{
-            email: "${EMAIL}",
-            password: "tkdwns12",
+            email: "${testUser.email}",
+            password: "${testUser.password}",
             role:Client
           }) {
             ok
@@ -58,8 +64,8 @@ describe('UserModule (e2e)', () => {
         .send({
           query: `mutation {
           createAccount(input:{
-            email: "${EMAIL}",
-            password: "tkdwns12",
+            email: "${testUser.email}",
+            password: "${testUser.password}",
             role:Client
           }) {
             ok
@@ -76,7 +82,57 @@ describe('UserModule (e2e)', () => {
         });
     });
   });
-  it.todo('login');
+
+  describe('login', () => {
+    it('적합한 로그인인 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .send({
+          query: `mutation {
+          login(input: {
+            email: "${testUser.email}",
+            password: "${testUser.password}"
+          }) {
+            ok
+            error
+            token
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.login.ok).toBe(true);
+          expect(res.body.data.login.error).toBe(null);
+          expect(res.body.data.login.token).toEqual(expect.any(String));
+          jwtToken = res.body.data.login.token;
+        });
+    });
+
+    it('적합하지 않은 로그인인 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .send({
+          query: `mutation {
+          login(input: {
+            email: "${testUser.email}",
+            password: "xxx"
+          }) {
+            ok
+            error
+            token
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.login.ok).toBe(false);
+          expect(res.body.data.login.error).toBe(
+            '비밀번호가 일치하지 않습니다.',
+          );
+          expect(res.body.data.login.token).toBe(null);
+        });
+    });
+  });
   it.todo('userProfile');
   it.todo('me');
   it.todo('verifyEmail');
