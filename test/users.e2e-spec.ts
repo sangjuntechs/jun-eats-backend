@@ -194,7 +194,41 @@ describe('UserModule (e2e)', () => {
         });
     });
   });
-  it.todo('me');
+  describe('me', () => {
+    it('자신의 프로필을 찾은 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .set('X-JWT', jwtToken)
+        .send({
+          query: `{
+          me {
+            email
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.data.me.email).toBe(testUser.email);
+        });
+    });
+
+    it('자신의 프로필을 찾을 수 없는 경우', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .send({
+          query: `{
+          me {
+            email
+          }
+        }`,
+        })
+        .expect(200)
+        .expect((res) => {
+          const [error] = res.body.errors;
+          expect(error.message).toEqual('Forbidden resource');
+        });
+    });
+  });
   it.todo('verifyEmail');
   it.todo('editProfile');
 });
