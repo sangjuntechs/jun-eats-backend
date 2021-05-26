@@ -16,6 +16,7 @@ const typeorm_1 = require("typeorm");
 const bcrypt = require("bcrypt");
 const common_1 = require("@nestjs/common");
 const class_validator_1 = require("class-validator");
+const restaurant_entity_1 = require("../../restaurants/entities/restaurant.entity");
 var UserRole;
 (function (UserRole) {
     UserRole[UserRole["Client"] = 0] = "Client";
@@ -55,6 +56,7 @@ __decorate([
 __decorate([
     graphql_1.Field((type) => String),
     typeorm_1.Column({ select: false }),
+    class_validator_1.IsString(),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
@@ -66,8 +68,14 @@ __decorate([
 __decorate([
     graphql_1.Field((type) => Boolean),
     typeorm_1.Column({ default: false }),
+    class_validator_1.IsBoolean(),
     __metadata("design:type", Boolean)
 ], User.prototype, "verified", void 0);
+__decorate([
+    graphql_1.Field((type) => [restaurant_entity_1.Restaurant]),
+    typeorm_1.OneToMany((type) => restaurant_entity_1.Restaurant, (restaurant) => restaurant.owner),
+    __metadata("design:type", Array)
+], User.prototype, "restaurants", void 0);
 __decorate([
     typeorm_1.BeforeInsert(),
     typeorm_1.BeforeUpdate(),
@@ -76,7 +84,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], User.prototype, "hashPassword", null);
 User = __decorate([
-    graphql_1.InputType({ isAbstract: true }),
+    graphql_1.InputType('UserInputType', { isAbstract: true }),
     graphql_1.ObjectType(),
     typeorm_1.Entity()
 ], User);
