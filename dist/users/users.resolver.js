@@ -13,10 +13,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersResolver = void 0;
-const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
 const auth_user_decorator_1 = require("../auth/auth-user.decorator");
 const auth_guard_1 = require("../auth/auth.guard");
+const role_decorator_1 = require("../auth/role.decorator");
 const create_account_dto_1 = require("./dtos/create-account.dto");
 const edit_profile_dto_1 = require("./dtos/edit-profile.dto");
 const login_dto_1 = require("./dtos/login.dto");
@@ -72,15 +72,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "login", null);
 __decorate([
+    role_decorator_1.Role(['Any']),
     graphql_1.Query((returns) => user_entity_1.User),
-    common_1.UseGuards(auth_guard_1.AuthGuard),
     __param(0, auth_user_decorator_1.AuthUser()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_entity_1.User]),
     __metadata("design:returntype", void 0)
 ], UsersResolver.prototype, "me", null);
 __decorate([
-    common_1.UseGuards(auth_guard_1.AuthGuard),
+    role_decorator_1.Role(['Any']),
     graphql_1.Query((returns) => user_profile_dto_1.UserProfileOutput),
     __param(0, graphql_1.Args()),
     __metadata("design:type", Function),
@@ -88,7 +88,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersResolver.prototype, "userProfile", null);
 __decorate([
-    common_1.UseGuards(auth_guard_1.AuthGuard),
+    role_decorator_1.Role(['Any']),
     graphql_1.Mutation((returns) => edit_profile_dto_1.EditProfileOutput),
     __param(0, auth_user_decorator_1.AuthUser()),
     __param(1, graphql_1.Args('input')),

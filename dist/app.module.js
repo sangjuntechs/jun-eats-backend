@@ -21,6 +21,7 @@ const mail_module_1 = require("./mail/mail.module");
 const restaurant_entity_1 = require("./restaurants/entities/restaurant.entity");
 const category_entity_1 = require("./restaurants/entities/category.entity");
 const restaurants_module_1 = require("./restaurants/restaurants.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(jwt_middleware_1.jwtMiddleWare).forRoutes({
@@ -66,6 +67,7 @@ AppModule = __decorate([
             }),
             users_module_1.UsersModule,
             restaurants_module_1.ResturantsModule,
+            auth_module_1.AuthModule,
             jwt_module_1.JwtModule.forRoot({
                 privateKey: process.env.PRIVATE_KEY,
             }),
