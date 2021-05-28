@@ -6456,18 +6456,18 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/category.entity.ts": {
-        "version": "fcf614819f2ec7611529458f3b6b5df2ba3adc749f5153487252b565e978e9d5",
+        "version": "6857d7dc93eaf0cdb888a860256ee4e3b7949e8aa439f0bd4b9be635a109f780",
         "signature": "778aff23304be52c190ef95a821e1753d6bc1f2d47b2a39052b9de19e9eedd73",
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/restaurant.entity.ts": {
-        "version": "2d52bf2e2920e229f688f7c26918991a2aca7b655c05cf9148752945bb2fef1c",
+        "version": "dd3769e19b9a1bfc763e1de8dc2af408dcfa433a56edb23f8e6361be7ec0fcce",
         "signature": "da051cb2832d2e7408525fba76bb85258c2cdb310b58b5c17d122007c148f90e",
         "affectsGlobalScope": false
       },
       "../src/users/entities/user.entity.ts": {
-        "version": "c133b7219ed574b8d05682e8343b46ba72e7cbd45d40ee3de2d7dbec96e17d80",
-        "signature": "328b491eba8276d6d0713bea0177ede0ee43a4af8fa521579f4c15f1617a870a",
+        "version": "d960f30cd7013d4637ff5c96db683f93315af30dc2f65885c365086659d00593",
+        "signature": "56ea3f41daa11870812b6dd7737d09e47ce4e16f44433b9ce9921ce7bcca46c7",
         "affectsGlobalScope": false
       },
       "../src/users/entities/verification.entity.ts": {
@@ -6492,7 +6492,7 @@
       },
       "../src/users/dtos/create-account.dto.ts": {
         "version": "91684d45debe9efe03863a7ce3512a28c207309c31fc401ef05c05af5cf18099",
-        "signature": "6f89af8315bc8a1796824e01384c21258f931e884cc8fa2f30a9bc114a9e2dc2",
+        "signature": "060f0eaa54b6e80ba3b2d447006d6af8663407ddd0d77bebae8e7e2509aec31c",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/edit-profile.dto.ts": {
@@ -6502,7 +6502,7 @@
       },
       "../src/users/dtos/login.dto.ts": {
         "version": "9187ed336c2830f8d86b01ef441fdacacb9a6d5cd605374f9e13b9b0a799a244",
-        "signature": "fc03bf60d8e63dc4b50adf06b034b6ea7f94fa188525de722c7bdf59b57c775f",
+        "signature": "9d4cec298464637e1cc814ae54d1ed526e200520cee40626ed6a221bbf083612",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/user-profile.dto.ts": {
@@ -6660,6 +6660,11 @@
         "signature": "736681ad77fedd86ada50f3f17b5349a68b343baae331b29c8c41cc140818aad",
         "affectsGlobalScope": false
       },
+      "../src/auth/role.decorator.ts": {
+        "version": "d367d7fe106d80178312ebc5f2866d242a06842be96e781c02681344543a3c3e",
+        "signature": "8710ed83f327cb480fa0fff93a78573288b42225e7f3bf1cf3a472aa9a60b35f",
+        "affectsGlobalScope": false
+      },
       "../src/restaurants/dtos/create-restaurant.ts": {
         "version": "f862366c9d6dc80988533b735ab1c9253a57ce0ea6ca5bc036e5dbb12198fae2",
         "signature": "92b5c903e6ebae9fc001529cc37adac7393c619ce3e7b5da3269ff5345371e64",
@@ -6671,7 +6676,7 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/restaurants.resolver.ts": {
-        "version": "f92ea49bbd30fe7404053117a6afbfc068bd66b0d4491b8e824a61522c108d6b",
+        "version": "6ad2e1fc0d724c8f684099a0a1c44eb18f1464a43debbe96e8ed427e93576926",
         "signature": "d27a209125ab3192871fc7d738095422684174674758e973ba8c16f695c770bc",
         "affectsGlobalScope": false
       },
@@ -12212,6 +12217,10 @@
       "../src/auth/auth.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
+      "../src/auth/role.decorator.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
       "../src/common/common.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
@@ -12290,6 +12299,7 @@
       "../src/restaurants/restaurants.resolver.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/auth/auth-user.decorator.ts",
+        "../src/auth/role.decorator.ts",
         "../src/restaurants/dtos/create-restaurant.ts",
         "../src/restaurants/entities/restaurant.entity.ts",
         "../src/restaurants/restaurants.service.ts",
@@ -17673,6 +17683,10 @@
       "../src/auth/auth.guard.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
+      "../src/auth/role.decorator.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
       "../src/jwt/jwt.middleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
@@ -19122,6 +19136,7 @@
       "../src/auth/auth-user.decorator.ts",
       "../src/auth/auth.guard.ts",
       "../src/auth/auth.module.ts",
+      "../src/auth/role.decorator.ts",
       "../src/common/common.constant.ts",
       "../src/common/common.module.ts",
       "../src/common/dtos/output.dto.ts",

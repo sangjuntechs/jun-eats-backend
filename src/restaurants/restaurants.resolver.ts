@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { AuthUser } from 'src/auth/auth-user.decorator';
+import { Role } from 'src/auth/role.decorator';
 import { User } from 'src/users/entities/user.entity';
 import {
   createRestaurantInput,
@@ -14,6 +15,7 @@ export class ResturantsResolver {
   constructor(private readonly restaurantService: ResturantService) {}
 
   @Mutation((returns) => CreateResturantOutput)
+  @Role(['Owner'])
   async createRestaurant(
     @AuthUser() authUser: User,
     @Args('input') createRestaurantInput: createRestaurantInput,

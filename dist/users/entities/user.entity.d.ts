@@ -1,9 +1,9 @@
 import { CoreEntity } from 'src/common/entities/core.entity';
 import { Restaurant } from 'src/restaurants/entities/restaurant.entity';
-declare enum UserRole {
-    Client = 0,
-    Owner = 1,
-    Delivery = 2
+export declare enum UserRole {
+    Client = "Client",
+    Owner = "Owner",
+    Delivery = "Delivery"
 }
 export declare class User extends CoreEntity {
     email: string;
@@ -14,4 +14,3 @@ export declare class User extends CoreEntity {
     hashPassword(): Promise<void>;
     checkPassword(aPassword: string): Promise<boolean>;
 }
-export {};

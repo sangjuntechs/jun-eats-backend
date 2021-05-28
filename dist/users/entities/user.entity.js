@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.User = exports.UserRole = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const core_entity_1 = require("../../common/entities/core.entity");
 const typeorm_1 = require("typeorm");
@@ -19,10 +19,10 @@ const class_validator_1 = require("class-validator");
 const restaurant_entity_1 = require("../../restaurants/entities/restaurant.entity");
 var UserRole;
 (function (UserRole) {
-    UserRole[UserRole["Client"] = 0] = "Client";
-    UserRole[UserRole["Owner"] = 1] = "Owner";
-    UserRole[UserRole["Delivery"] = 2] = "Delivery";
-})(UserRole || (UserRole = {}));
+    UserRole["Client"] = "Client";
+    UserRole["Owner"] = "Owner";
+    UserRole["Delivery"] = "Delivery";
+})(UserRole = exports.UserRole || (exports.UserRole = {}));
 graphql_1.registerEnumType(UserRole, { name: 'UserRole' });
 let User = class User extends core_entity_1.CoreEntity {
     async hashPassword() {
@@ -63,7 +63,7 @@ __decorate([
     graphql_1.Field((type) => UserRole),
     typeorm_1.Column({ type: 'enum', enum: UserRole }),
     class_validator_1.IsEnum(UserRole),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], User.prototype, "role", void 0);
 __decorate([
     graphql_1.Field((type) => Boolean),
