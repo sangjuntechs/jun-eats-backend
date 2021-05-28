@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EditProfileOutput } from 'src/users/dtos/edit-profile.dto';
@@ -17,21 +18,8 @@ export class ResturantService {
   constructor(
     @InjectRepository(Restaurant)
     private readonly restaurants: Repository<Restaurant>,
-    @InjectRepository(Category)
     private readonly categories: CategoryRepository,
   ) {}
-
-  async getOrCreateCategory(name: string): Promise<Category> {
-    const CategoryName = name.trim().toLowerCase();
-    const categorySlug = CategoryName.replace(/ /g, '-');
-    let category = await this.categories.findOne({ slug: categorySlug });
-    if (!category) {
-      category = await this.categories.save(
-        this.categories.create({ slug: categorySlug, name: CategoryName }),
-      );
-    }
-    return category;
-  }
 
   async createResturant(
     owner: User,
@@ -40,7 +28,7 @@ export class ResturantService {
     try {
       const newRestaurant = this.restaurants.create(createRestaurantInput);
       newRestaurant.owner = owner;
-      const category = await this.categories.getOrCreateCategory(
+      const category = await this.categories.getOrCreate(
         createRestaurantInput.categoryName,
       );
       newRestaurant.category = category;
@@ -76,6 +64,19 @@ export class ResturantService {
           error: '자신의 식당만 수정할 수 있습니다.',
         };
       }
+      let category: Category = null;
+      if (editRestaurantInput.categoryName) {
+        category = await this.categories.getOrCreate(
+          editRestaurantInput.categoryName,
+        );
+      }
+      await this.restaurants.save([
+        {
+          id: editRestaurantInput.restaurantId,
+          ...editRestaurantInput,
+          ...(category && { category }),
+        },
+      ]);
       return {
         ok: true,
       };

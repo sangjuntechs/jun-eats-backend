@@ -33,9 +33,9 @@ export class ResturantsResolver {
   @Mutation((returns) => EditRestaurantOutput)
   @Role(['Owner'])
   async editRestaurant(
-    @AuthUser() authUser: User,
+    @AuthUser() owner: User,
     @Args('input') editRestaurantInput: EditRestaurantInput,
   ): Promise<EditRestaurantOutput> {
-    return { ok: true };
+    return this.restaurantService.editRestaurant(owner, editRestaurantInput);
   }
 }
