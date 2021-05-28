@@ -25,6 +25,7 @@ let AuthGuard = class AuthGuard {
         }
         const gqlContext = graphql_1.GqlExecutionContext.create(context).getContext();
         const user = gqlContext['user'];
+        console.log(gqlContext);
         if (!user) {
             return false;
         }

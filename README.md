@@ -5,3 +5,5 @@
 <p>DB : Postgre</p>
 <p>basic_language : Typescript</p>
 <p>connection : graphQL</p>
+
+상세설명 : https://www.notion.so/sangjuntechs/JUN-EATS-1f4d4df714ac4b15b4bf3696c650b08c

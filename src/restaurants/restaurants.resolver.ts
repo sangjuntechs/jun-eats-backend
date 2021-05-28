@@ -4,9 +4,13 @@ import { AuthUser } from 'src/auth/auth-user.decorator';
 import { Role } from 'src/auth/role.decorator';
 import { User } from 'src/users/entities/user.entity';
 import {
-  createRestaurantInput,
+  CreateRestaurantInput,
   CreateResturantOutput,
-} from './dtos/create-restaurant';
+} from './dtos/create-restaurant.dto';
+import {
+  EditRestaurantInput,
+  EditRestaurantOutput,
+} from './dtos/edit-restaurant.dto';
 import { Restaurant } from './entities/restaurant.entity';
 import { ResturantService } from './restaurants.service';
 
@@ -18,11 +22,20 @@ export class ResturantsResolver {
   @Role(['Owner'])
   async createRestaurant(
     @AuthUser() authUser: User,
-    @Args('input') createRestaurantInput: createRestaurantInput,
+    @Args('input') createRestaurantInput: CreateRestaurantInput,
   ): Promise<CreateResturantOutput> {
     return this.restaurantService.createResturant(
       authUser,
       createRestaurantInput,
     );
+  }
+
+  @Mutation((returns) => EditRestaurantOutput)
+  @Role(['Owner'])
+  async editRestaurant(
+    @AuthUser() authUser: User,
+    @Args('input') editRestaurantInput: EditRestaurantInput,
+  ): Promise<EditRestaurantOutput> {
+    return { ok: true };
   }
 }
