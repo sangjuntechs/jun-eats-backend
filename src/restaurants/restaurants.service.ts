@@ -5,6 +5,7 @@ import { EditProfileOutput } from 'src/users/dtos/edit-profile.dto';
 import { User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { AllCategoriesOutput } from './dtos/all-categories.dto';
+import { CategoryInput, CategoryOutput } from './dtos/category.dto';
 import {
   CreateRestaurantInput,
   CreateResturantOutput,
@@ -139,5 +140,31 @@ export class ResturantService {
 
   countRestaurant(category: Category) {
     return this.restaurants.count({ category });
+  }
+
+  async findCategoryBySlug({ slug }: CategoryInput): Promise<CategoryOutput> {
+    try {
+      const category = await this.categories.findOne(
+        { slug },
+        {
+          relations: ['restaurants'],
+        },
+      );
+      if (!category) {
+        return {
+          ok: false,
+          error: '카테고리를 찾을 수 없습니다1.',
+        };
+      }
+      return {
+        ok: true,
+        category,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: '카테고리를 찾을 수 없습니다2.',
+      };
+    }
   }
 }
