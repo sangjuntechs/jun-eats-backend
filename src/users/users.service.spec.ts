@@ -3,7 +3,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { JwtService } from 'src/jwt/jwt.service';
 import { MailService } from 'src/mail/mail.service';
 import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
+import { User, UserRole } from './entities/user.entity';
 import { Verification } from './entities/verification.entity';
 import { UsersService } from './users.service';
 
@@ -67,7 +67,7 @@ describe('UsersService', () => {
     const createAccountArg = {
       email: '',
       password: '',
-      role: 0,
+      role: UserRole.Client,
     };
     it('이미 같은 유저가 존재하는 경우', async () => {
       usersRepository.findOne.mockResolvedValue({
