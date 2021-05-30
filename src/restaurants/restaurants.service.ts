@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { EditProfileOutput } from 'src/users/dtos/edit-profile.dto';
 import { User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
+import { AllCategoriesOutput } from './dtos/all-categories.dto';
 import {
   CreateRestaurantInput,
   CreateResturantOutput,
@@ -119,5 +120,24 @@ export class ResturantService {
         error: '식당을 삭제할 수 없습니다.',
       };
     }
+  }
+
+  async allCategories(): Promise<AllCategoriesOutput> {
+    try {
+      const categories = await this.categories.find();
+      return {
+        ok: true,
+        categories,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: '카테고리를 로드할 수 없습니다.',
+      };
+    }
+  }
+
+  countRestaurant(category: Category) {
+    return this.restaurants.count({ category });
   }
 }
