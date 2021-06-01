@@ -23,6 +23,10 @@ import { Category } from './entities/category.entity';
 import { Restaurant } from './entities/restaurant.entity';
 import { ResturantService } from './restaurants.service';
 import { RestaurantInput, RestaurantOutput } from './dtos/restaurant.dto';
+import {
+  SearchRestaurantInput,
+  SearchRestaurantOutput,
+} from './dtos/search-restaurant.dto';
 
 @Resolver(() => Restaurant)
 export class ResturantsResolver {
@@ -73,6 +77,13 @@ export class ResturantsResolver {
     @Args('input') restaurantInput: RestaurantInput,
   ): Promise<RestaurantOutput> {
     return this.restaurantService.findRestaurantById(restaurantInput);
+  }
+
+  @Query((returns) => SearchRestaurantOutput)
+  searchRestaurant(
+    @Args('input') searchRestaurantInput: SearchRestaurantInput,
+  ): Promise<SearchRestaurantOutput> {
+    return this.restaurantService.searchRestaurantByName(searchRestaurantInput);
   }
 }
 
