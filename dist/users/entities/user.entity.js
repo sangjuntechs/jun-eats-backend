@@ -17,6 +17,7 @@ const bcrypt = require("bcrypt");
 const common_1 = require("@nestjs/common");
 const class_validator_1 = require("class-validator");
 const restaurant_entity_1 = require("../../restaurants/entities/restaurant.entity");
+const order_entity_1 = require("../../orders/entities/order.entity");
 var UserRole;
 (function (UserRole) {
     UserRole["Client"] = "Client";
@@ -76,6 +77,16 @@ __decorate([
     typeorm_1.OneToMany((type) => restaurant_entity_1.Restaurant, (restaurant) => restaurant.owner),
     __metadata("design:type", Array)
 ], User.prototype, "restaurants", void 0);
+__decorate([
+    graphql_1.Field((type) => [order_entity_1.Order]),
+    typeorm_1.OneToMany((type) => order_entity_1.Order, (order) => order.customer),
+    __metadata("design:type", Array)
+], User.prototype, "orders", void 0);
+__decorate([
+    graphql_1.Field((type) => [order_entity_1.Order]),
+    typeorm_1.OneToMany((type) => order_entity_1.Order, (order) => order.driver),
+    __metadata("design:type", Array)
+], User.prototype, "rides", void 0);
 __decorate([
     typeorm_1.BeforeInsert(),
     typeorm_1.BeforeUpdate(),
