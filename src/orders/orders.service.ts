@@ -26,5 +26,12 @@ export class OrderService {
         error: '레스토랑을 찾을 수 없습니다.',
       };
     }
+    const order = await this.orders.save(
+      this.orders.create({
+        customer,
+        restaurant,
+      }),
+    );
+    console.log(order);
   }
 }

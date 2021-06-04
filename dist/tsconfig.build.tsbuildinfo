@@ -6456,17 +6456,17 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/dish.entity.ts": {
-        "version": "4646ea8c2eaaa07c18f32c60a5cff876e1af6d2ec0093a3eb624ae14dfef4323",
-        "signature": "8eff361fa6e304ba72a454ee457a783654de8e207a408c945864c8d35621b73f",
+        "version": "03988c67fcaa2377546a93e4ddef0d00fcfa781457e77cafad59766e83f559ac",
+        "signature": "f74e6c8647fbe9584d7cf81e134967a39b4ec926823aa99ce6c8cb4a2306329e",
         "affectsGlobalScope": false
       },
       "../src/orders/entities/order-item.entity.ts": {
-        "version": "af8341cef1423f66716728dfeda7d7c0d1a0378b90529aab30b96cb5f4e28c43",
-        "signature": "aa44f3f946c5093a2a370cda798572a61f1440bb26ec54a3c4f7b9d682648a7c",
+        "version": "77445ee3989c304e7360d6161b4b368c66d1e6e721d0178e7b4b78ecf5975d5d",
+        "signature": "d7be82280d39c1b4296509b47e7bde29b9d51cf78af2b9f5e9442f6dd57db861",
         "affectsGlobalScope": false
       },
       "../src/orders/entities/order.entity.ts": {
-        "version": "8630ccc7169fe146f52de08e84d27b5e983fe64c1eb9b20eb662dc433fe1ac0c",
+        "version": "78a84bd652115370a000bad9e60873f50e268d86e0aa592334ec9e994742ed52",
         "signature": "6ea66f71765b89e26cdd7cae6223d7c669ecddde94db5e0d378a78c632aad83f",
         "affectsGlobalScope": false
       },
@@ -6766,12 +6766,12 @@
         "affectsGlobalScope": false
       },
       "../src/orders/dtos/create-order.dto.ts": {
-        "version": "6e40e9c3975b813a535556a09c68c7f8b55229566b04becc690280b53f8ff1eb",
-        "signature": "4004b6071ee655032e8734883e0dae042f0f3dc0a4723d16f0134792f4344353",
+        "version": "e13bb243e090317a2ef6718397f4c664a3f32543583365892739029a4c9fa7c5",
+        "signature": "56539c2e3c3aabcfb33f8e23bb49bf818bd6233a98850dacff0d9d2705f9f30e",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "e1b19ad14b48359b1edd07b9efee244d8dd8d0ffb3c9967714dacea2398da7d2",
+        "version": "0b87e6e5fa5b63ffb510a513f7ac08f4de82e715d7ceb3105c00ff8ede4a01fc",
         "signature": "c2f792246c94b264d665ce63a272715b5bf2ef1066cd6199cfcb28c6a32846d4",
         "affectsGlobalScope": false
       },
@@ -12380,7 +12380,7 @@
       "../src/orders/dtos/create-order.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/common/dtos/output.dto.ts",
-        "../src/restaurants/entities/dish.entity.ts"
+        "../src/orders/entities/order-item.entity.ts"
       ],
       "../src/orders/entities/order-item.entity.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -17959,7 +17959,7 @@
       ],
       "../src/orders/dtos/create-order.dto.ts": [
         "../src/common/dtos/output.dto.ts",
-        "../src/restaurants/entities/dish.entity.ts"
+        "../src/orders/entities/order-item.entity.ts"
       ],
       "../src/orders/entities/order-item.entity.ts": [
         "../src/common/entities/core.entity.ts",
