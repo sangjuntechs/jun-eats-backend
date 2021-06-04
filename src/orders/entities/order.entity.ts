@@ -38,19 +38,20 @@ export class Order extends CoreEntity {
   })
   driver?: User;
 
-  @Field((type) => Restaurant)
+  @Field((type) => Restaurant, { nullable: true })
   @ManyToOne((type) => Restaurant, (restaurant) => restaurant.order, {
     onDelete: 'SET NULL',
     nullable: true,
   })
-  restaurant: Restaurant;
+  restaurant?: Restaurant;
 
   @Field((type) => [Dish])
   @ManyToMany((type) => Dish)
   @JoinTable()
   dishes: Dish[];
 
-  @Field((type) => Number)
+  @Column({ nullable: true })
+  @Field((type) => Number, { nullable: true })
   total: number;
 
   @Field((type) => OrderStatus)
