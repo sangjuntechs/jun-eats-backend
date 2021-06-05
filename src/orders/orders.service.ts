@@ -29,21 +29,40 @@ export class OrderService {
     if (!restaurant) {
       return {
         ok: false,
-        error: '레스토랑을 찾을 수 없습니다.',
+        error: '식당을 찾을 수 없습니다.',
       };
     }
-    items.forEach(async (item) => {
+    for (const item of items) {
       const dish = await this.dishes.findOne(item.dishId);
       if (!dish) {
         // 음식이 없는 경우 작업취소
+        return {
+          ok: false,
+          error: '음식을 찾을 수 없습니다.',
+        };
       }
-      await this.orderItems.save(
+      for (const itemOption of item.options) {
+        const dishOption = dish.option.find(
+          (dishOption) => dishOption.name === itemOption.name,
+        );
+        if (dishOption) {
+          if (dishOption.extra) {
+            console.log(`${dishOption.extra}원`);
+          } else {
+            const dishOptionChoice = dishOption.choices.find(
+              (optionChoice) => optionChoice.name === itemOption.choice,
+            );
+            console.log(dishOptionChoice);
+          }
+        }
+      }
+      /*await this.orderItems.save(
         this.orderItems.create({
           dish,
           options: item.options,
         }),
-      );
-    });
+      );*/
+    }
     /*
     const order = await this.orders.save(
       this.orders.create({

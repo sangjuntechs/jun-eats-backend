@@ -6456,13 +6456,13 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/dish.entity.ts": {
-        "version": "03988c67fcaa2377546a93e4ddef0d00fcfa781457e77cafad59766e83f559ac",
+        "version": "fbf52ca0492276c6718e60de5ab6179eb5f330e3dbf27d7b434d37d4c799a298",
         "signature": "f74e6c8647fbe9584d7cf81e134967a39b4ec926823aa99ce6c8cb4a2306329e",
         "affectsGlobalScope": false
       },
       "../src/orders/entities/order-item.entity.ts": {
-        "version": "8f0cf785420bf287bcfbad0752ce9ed6d53b9f2fce22d67755b533ce828792ad",
-        "signature": "1d9f4ed868ed07a7b55637996031fbe02ce3c30fdce69e1f7a48654e66575385",
+        "version": "422464aa52a8a6b8e2aac55850d04f2c114f8b0d3c8f28e55ebb9a2511f9eb00",
+        "signature": "a5bffe5e9c45ab4dc02d8b8c837247c7ea3730aa7edea35d7a7e4249623d62e2",
         "affectsGlobalScope": false
       },
       "../src/orders/entities/order.entity.ts": {
@@ -6501,7 +6501,7 @@
         "affectsGlobalScope": false
       },
       "../src/auth/auth.guard.ts": {
-        "version": "a00735e8593cb832a966b46cc0fd89fa7c439f4577c650030c9ed17894a47b3a",
+        "version": "7465c5c08846411b7780a017d9f22208ed35f5aca544b903f20c9e2607e3c1c7",
         "signature": "203b02b7dd181d230245f2e10171c709478b66c4bd82d47123c1683f6a433576",
         "affectsGlobalScope": false
       },
@@ -6771,7 +6771,7 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "d5c20e0325534c39db726ff24b738df5fbf9abac62e2fce3df2bb821dbba0e68",
+        "version": "5f915bf9a9b24240daf63ed4f14ea53b55a833ec2efb920f020e374a2efa2509",
         "signature": "4531a850ca032a5a5b7d4ebcb0b488d5fa519cb1c147f3af641a5a40d32ca53e",
         "affectsGlobalScope": false
       },
