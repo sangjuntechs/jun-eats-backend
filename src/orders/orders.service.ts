@@ -41,18 +41,25 @@ export class OrderService {
           error: '음식을 찾을 수 없습니다.',
         };
       }
+      console.log(`${dish.name}의 가격${dish.price}원`)
       for (const itemOption of item.options) {
         const dishOption = dish.option.find(
           (dishOption) => dishOption.name === itemOption.name,
         );
         if (dishOption) {
           if (dishOption.extra) {
-            console.log(`${dishOption.extra}원`);
+            console.log(`+${dishOption.name}, ${dishOption.extra}원`);
           } else {
             const dishOptionChoice = dishOption.choices.find(
               (optionChoice) => optionChoice.name === itemOption.choice,
             );
-            console.log(dishOptionChoice);
+            if (dishOptionChoice) {
+              if (dishOptionChoice.extra) {
+                console.log(
+                  `+${dishOptionChoice.name}, ${dishOptionChoice.extra}원`,
+                );
+              }
+            }
           }
         }
       }
