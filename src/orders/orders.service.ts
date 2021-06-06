@@ -5,6 +5,7 @@ import { Restaurant } from 'src/restaurants/entities/restaurant.entity';
 import { User, UserRole } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { CreateOrderInput, CreateOrderOutput } from './dtos/create-order.dto';
+import { GetOrderInput, GetOrderOutput } from './dtos/get-order.dto';
 import { GetOrdersInput, GetOrdersOutput } from './dtos/get-orders.dto';
 import { OrderItem } from './entities/order-item.entity';
 import { Order } from './entities/order.entity';
@@ -103,12 +104,14 @@ export class OrderService {
         orders = await this.orders.find({
           where: {
             customer: user,
+            ...(status && { status }),
           },
         });
       } else if (user.role === UserRole.Delivery) {
         orders = await this.orders.find({
           where: {
             driver: user,
+            ...(status && { status }),
           },
         });
       } else if (user.role === UserRole.Owner) {
@@ -118,17 +121,64 @@ export class OrderService {
           },
           relations: ['order'],
         });
-        console.log(restaurants);
         orders = restaurants.map((restaurant) => restaurant.order).flat(1);
-        return {
-          ok: true,
-          orders,
-        };
+        if (status) {
+          orders = orders.filter((order) => order.status === status);
+        }
       }
+      return {
+        ok: true,
+        orders,
+      };
     } catch (error) {
       return {
         ok: false,
         error: '주문을 가져올 수 없습니다.',
+      };
+    }
+  }
+
+  async getOrder(
+    user: User,
+    { id: orderId }: GetOrderInput,
+  ): Promise<GetOrderOutput> {
+    try {
+      const order = await this.orders.findOne(orderId, {
+        relations: ['restaurant'],
+      });
+      if (!order) {
+        return {
+          ok: false,
+          error: '주문을 찾을 수 없습니다.',
+        };
+      }
+      let access = true;
+      if (user.role === UserRole.Client && order.customerId !== user.id) {
+        access = false;
+      }
+      if (user.role === UserRole.Delivery && order.driverId !== user.id) {
+        access = false;
+      }
+      if (
+        user.role === UserRole.Owner &&
+        order.restaurant.ownerId !== user.id
+      ) {
+        access = false;
+      }
+      if (!access) {
+        return {
+          ok: false,
+          error: '주문을 볼 권한이 없습니다.',
+        };
+      }
+      return {
+        ok: true,
+        order,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: '주문을 불러올 수 없습니다.',
       };
     }
   }
