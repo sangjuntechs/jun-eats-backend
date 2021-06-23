@@ -15,7 +15,6 @@ const Joi = require("joi");
 const users_module_1 = require("./users/users.module");
 const user_entity_1 = require("./users/entities/user.entity");
 const jwt_module_1 = require("./jwt/jwt.module");
-const jwt_middleware_1 = require("./jwt/jwt.middleware");
 const verification_entity_1 = require("./users/entities/verification.entity");
 const mail_module_1 = require("./mail/mail.module");
 const restaurant_entity_1 = require("./restaurants/entities/restaurant.entity");
@@ -27,19 +26,19 @@ const orders_module_1 = require("./orders/orders.module");
 const order_entity_1 = require("./orders/entities/order.entity");
 const order_item_entity_1 = require("./orders/entities/order-item.entity");
 let AppModule = class AppModule {
-    configure(consumer) {
-        consumer.apply(jwt_middleware_1.jwtMiddleWare).forRoutes({
-            path: '/graphql',
-            method: common_1.RequestMethod.POST,
-        });
-    }
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
             graphql_1.GraphQLModule.forRoot({
+                installSubscriptionHandlers: true,
                 autoSchemaFile: true,
-                context: ({ req }) => ({ user: req['user'] }),
+                context: ({ req, connection }) => {
+                    const TOKEN_KEY = 'x-jwt';
+                    return {
+                        token: req ? req.headers[TOKEN_KEY] : connection.context[TOKEN_KEY],
+                    };
+                },
             }),
             config_1.ConfigModule.forRoot({
                 isGlobal: true,

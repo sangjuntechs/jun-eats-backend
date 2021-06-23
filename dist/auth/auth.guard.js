@@ -13,30 +13,45 @@ exports.AuthGuard = void 0;
 const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const graphql_1 = require("@nestjs/graphql");
-const user_entity_1 = require("../users/entities/user.entity");
+const jwt_service_1 = require("../jwt/jwt.service");
+const users_service_1 = require("../users/users.service");
 let AuthGuard = class AuthGuard {
-    constructor(reflector) {
+    constructor(reflector, jwtService, userService) {
         this.reflector = reflector;
+        this.jwtService = jwtService;
+        this.userService = userService;
     }
-    canActivate(context) {
+    async canActivate(context) {
         const roles = this.reflector.get('roles', context.getHandler());
         if (!roles) {
             return true;
         }
         const gqlContext = graphql_1.GqlExecutionContext.create(context).getContext();
-        const user = gqlContext['user'];
-        if (!user) {
+        const token = gqlContext.token;
+        if (token) {
+            const decoded = this.jwtService.verify(token.toString());
+            if (typeof decoded === 'object' && decoded.hasOwnProperty('id')) {
+                const { user } = await this.userService.findById(decoded['id']);
+                if (!user) {
+                    return false;
+                }
+                gqlContext['user'] = user;
+                if (roles.includes('Any')) {
+                    return true;
+                }
+                return roles.includes(user.role);
+            }
+        }
+        else {
             return false;
         }
-        if (roles.includes('Any')) {
-            return true;
-        }
-        return roles.includes(user.role);
     }
 };
 AuthGuard = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [core_1.Reflector])
+    __metadata("design:paramtypes", [core_1.Reflector,
+        jwt_service_1.JwtService,
+        users_service_1.UsersService])
 ], AuthGuard);
 exports.AuthGuard = AuthGuard;
 //# sourceMappingURL=auth.guard.js.map
