@@ -6806,8 +6806,8 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.resolver.ts": {
-        "version": "0062a55ca8ebca0e15efaf899e98803ce498e6be48bf818c452527eab98be727",
-        "signature": "d6f5126177e9cfb6b4d427e396548d0433f41f6f9ff50d07366350b643d318fc",
+        "version": "706096fea2cea80fb0c2cf70b033a70aab6622370d65d8f54159aaacc34b3414",
+        "signature": "611326d4172065bd6921410e12dac274aefe824afe2c9e82b3b6f9e91834ff7a",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.module.ts": {
