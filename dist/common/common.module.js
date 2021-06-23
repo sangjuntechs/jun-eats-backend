@@ -8,10 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommonModule = void 0;
 const common_1 = require("@nestjs/common");
+const graphql_subscriptions_1 = require("graphql-subscriptions");
+const common_constant_1 = require("./common.constant");
+const pubsub = new graphql_subscriptions_1.PubSub();
 let CommonModule = class CommonModule {
 };
 CommonModule = __decorate([
-    common_1.Module({})
+    common_1.Global(),
+    common_1.Module({
+        providers: [
+            {
+                provide: common_constant_1.PUB_SUB,
+                useValue: pubsub,
+            },
+        ],
+        exports: [common_constant_1.PUB_SUB],
+    })
 ], CommonModule);
 exports.CommonModule = CommonModule;
 //# sourceMappingURL=common.module.js.map
