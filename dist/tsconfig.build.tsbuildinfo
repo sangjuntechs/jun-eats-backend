@@ -6805,14 +6805,19 @@
         "signature": "9e6bd18eb7b973c965b7d6fd0b92e4cac42244ac4c757c62468ae89609f74262",
         "affectsGlobalScope": false
       },
+      "../src/orders/dtos/take-orders.dto.ts": {
+        "version": "abb9d9f78a909259190285643b9187d22b338f82074a37ad7a21f0c4dec5ee08",
+        "signature": "61ad1530e0c4eeb27aa4aec0a62acc0238589299033ece59bad5b5cbe9e4f063",
+        "affectsGlobalScope": false
+      },
       "../src/orders/orders.service.ts": {
-        "version": "189103151270163f4794355025a23d96952b580e67b22633494bdc30b59ad3c7",
-        "signature": "d74c439279af48a134175f2f3debbc238db5a0bd84931423a428fb7467c236da",
+        "version": "056cd04b6f8824c49b1a4e0a99fb6d98cc6eb313495cc5724eb192c84252011e",
+        "signature": "506a72aa7ed23c9d4b7df46adb246ecc7819ee1adaea5548c4b2ab919698cf8d",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.resolver.ts": {
-        "version": "94ffc52baef84e728eb7fb6bbbd82cfa28bb514ffa93c6cf02b34d7c81a354d5",
-        "signature": "6c6f2c1b8d26afbcb4c3869bb3d40208bfbe2ad71f3c755e445d28ea64a91a5a",
+        "version": "27498fcebf1595fc752b22cb5f06d0c73fa9d69cdf28d19b08551fbb5dd2e12d",
+        "signature": "efa5eeb9785c9014818331ae7c8045807826eb541e1892a73bf64dd6fa35a3df",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.module.ts": {
@@ -12455,6 +12460,11 @@
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/orders/entities/order.entity.ts"
       ],
+      "../src/orders/dtos/take-orders.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/dtos/output.dto.ts",
+        "../src/orders/entities/order.entity.ts"
+      ],
       "../src/orders/entities/order-item.entity.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
@@ -12484,6 +12494,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/graphql-subscriptions/dist/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
         "../src/auth/auth-user.decorator.ts",
         "../src/auth/role.decorator.ts",
         "../src/common/common.constant.ts",
@@ -12492,6 +12503,7 @@
         "../src/orders/dtos/get-order.dto.ts",
         "../src/orders/dtos/get-orders.dto.ts",
         "../src/orders/dtos/order-updates.dto.ts",
+        "../src/orders/dtos/take-orders.dto.ts",
         "../src/orders/entities/order.entity.ts",
         "../src/orders/orders.service.ts",
         "../src/users/entities/user.entity.ts"
@@ -12506,6 +12518,7 @@
         "../src/orders/dtos/edit-order.dto.ts",
         "../src/orders/dtos/get-order.dto.ts",
         "../src/orders/dtos/get-orders.dto.ts",
+        "../src/orders/dtos/take-orders.dto.ts",
         "../src/orders/entities/order-item.entity.ts",
         "../src/orders/entities/order.entity.ts",
         "../src/restaurants/entities/dish.entity.ts",
@@ -18077,6 +18090,11 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/orders/entities/order.entity.ts"
       ],
+      "../src/orders/dtos/take-orders.dto.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/common/dtos/output.dto.ts",
+        "../src/orders/entities/order.entity.ts"
+      ],
       "../src/orders/entities/order-item.entity.ts": [
         "../src/common/entities/core.entity.ts",
         "../src/restaurants/entities/dish.entity.ts"
@@ -18094,6 +18112,7 @@
         "../src/orders/dtos/get-order.dto.ts",
         "../src/orders/dtos/get-orders.dto.ts",
         "../src/orders/dtos/order-updates.dto.ts",
+        "../src/orders/dtos/take-orders.dto.ts",
         "../src/orders/orders.service.ts",
         "../src/users/entities/user.entity.ts"
       ],
@@ -18104,6 +18123,7 @@
         "../src/orders/dtos/edit-order.dto.ts",
         "../src/orders/dtos/get-order.dto.ts",
         "../src/orders/dtos/get-orders.dto.ts",
+        "../src/orders/dtos/take-orders.dto.ts",
         "../src/orders/entities/order-item.entity.ts",
         "../src/orders/entities/order.entity.ts",
         "../src/restaurants/entities/dish.entity.ts",
@@ -19639,6 +19659,7 @@
       "../src/orders/dtos/get-order.dto.ts",
       "../src/orders/dtos/get-orders.dto.ts",
       "../src/orders/dtos/order-updates.dto.ts",
+      "../src/orders/dtos/take-orders.dto.ts",
       "../src/orders/entities/order-item.entity.ts",
       "../src/orders/entities/order.entity.ts",
       "../src/orders/orders.module.ts",
