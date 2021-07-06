@@ -6806,7 +6806,7 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "387a649deacb416b807a802b52fe1606e323ebacca2c69359794c688332f324f",
+        "version": "189103151270163f4794355025a23d96952b580e67b22633494bdc30b59ad3c7",
         "signature": "d74c439279af48a134175f2f3debbc238db5a0bd84931423a428fb7467c236da",
         "affectsGlobalScope": false
       },

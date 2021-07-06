@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { PubSub } from 'graphql-subscriptions';
 import {
   NEW_COOKED_ORDER,
+  NEW_ORDER_UPDATE,
   NEW_PENDING_ORDER,
   PUB_SUB,
 } from 'src/common/common.constant';
@@ -248,7 +249,7 @@ export class OrderService {
           });
         }
       }
-      await this.pubSub.publish(NEW_COOKED_ORDER, { orderUpdates: newOrder });
+      await this.pubSub.publish(NEW_ORDER_UPDATE, { orderUpdates: newOrder });
       return {
         ok: true,
       };
