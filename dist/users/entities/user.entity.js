@@ -18,6 +18,7 @@ const common_1 = require("@nestjs/common");
 const class_validator_1 = require("class-validator");
 const restaurant_entity_1 = require("../../restaurants/entities/restaurant.entity");
 const order_entity_1 = require("../../orders/entities/order.entity");
+const payment_entity_1 = require("../../payments/entities/payment.entity");
 var UserRole;
 (function (UserRole) {
     UserRole["Client"] = "Client";
@@ -82,6 +83,11 @@ __decorate([
     typeorm_1.OneToMany((type) => order_entity_1.Order, (order) => order.customer),
     __metadata("design:type", Array)
 ], User.prototype, "orders", void 0);
+__decorate([
+    graphql_1.Field((type) => [payment_entity_1.Payment]),
+    typeorm_1.OneToMany((type) => payment_entity_1.Payment, (payment) => payment.user),
+    __metadata("design:type", Array)
+], User.prototype, "payments", void 0);
 __decorate([
     graphql_1.Field((type) => [order_entity_1.Order]),
     typeorm_1.OneToMany((type) => order_entity_1.Order, (order) => order.driver),

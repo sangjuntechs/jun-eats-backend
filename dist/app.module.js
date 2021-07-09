@@ -26,6 +26,8 @@ const orders_module_1 = require("./orders/orders.module");
 const order_entity_1 = require("./orders/entities/order.entity");
 const order_item_entity_1 = require("./orders/entities/order-item.entity");
 const common_module_1 = require("./common/common.module");
+const payments_module_1 = require("./payments/payments.module");
+const payment_entity_1 = require("./payments/entities/payment.entity");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -75,6 +77,7 @@ AppModule = __decorate([
                     dish_entity_1.Dish,
                     order_entity_1.Order,
                     order_item_entity_1.OrderItem,
+                    payment_entity_1.Payment,
                 ],
             }),
             users_module_1.UsersModule,
@@ -90,6 +93,7 @@ AppModule = __decorate([
             }),
             orders_module_1.OrdersModule,
             common_module_1.CommonModule,
+            payments_module_1.PaymentsModule,
         ],
         controllers: [],
         providers: [],
