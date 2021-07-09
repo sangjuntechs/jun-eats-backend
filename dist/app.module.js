@@ -28,6 +28,7 @@ const order_item_entity_1 = require("./orders/entities/order-item.entity");
 const common_module_1 = require("./common/common.module");
 const payments_module_1 = require("./payments/payments.module");
 const payment_entity_1 = require("./payments/entities/payment.entity");
+const schedule_1 = require("@nestjs/schedule");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -91,6 +92,7 @@ AppModule = __decorate([
                 domain: process.env.MAILGUN_DOMAIN_NAME,
                 fromEmail: process.env.MAILGUN_FROM_EMAIL,
             }),
+            schedule_1.ScheduleModule.forRoot(),
             orders_module_1.OrdersModule,
             common_module_1.CommonModule,
             payments_module_1.PaymentsModule,
