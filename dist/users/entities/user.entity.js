@@ -85,7 +85,7 @@ __decorate([
 ], User.prototype, "orders", void 0);
 __decorate([
     graphql_1.Field((type) => [payment_entity_1.Payment]),
-    typeorm_1.OneToMany((type) => payment_entity_1.Payment, (payment) => payment.user),
+    typeorm_1.OneToMany((type) => payment_entity_1.Payment, (payment) => payment.user, { eager: true }),
     __metadata("design:type", Array)
 ], User.prototype, "payments", void 0);
 __decorate([
