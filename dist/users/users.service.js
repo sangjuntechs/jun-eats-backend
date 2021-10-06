@@ -88,7 +88,7 @@ let UsersService = class UsersService {
     async editProfile(userId, { email, password }) {
         try {
             const user = await this.users.findOne(userId);
-            if (email) {
+            if (email && email !== user.email) {
                 user.email = email;
                 user.verified = false;
                 await this.verifications.delete({ user: { id: user.id } });
