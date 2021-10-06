@@ -6471,12 +6471,12 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/category.entity.ts": {
-        "version": "6857d7dc93eaf0cdb888a860256ee4e3b7949e8aa439f0bd4b9be635a109f780",
+        "version": "383b194f71e2fc152034f47d1d91d04461a85cc61a0e2222b284e1044e792d94",
         "signature": "778aff23304be52c190ef95a821e1753d6bc1f2d47b2a39052b9de19e9eedd73",
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/restaurant.entity.ts": {
-        "version": "e73c1a3a3e04b955fd221e96ae8d0078b099bf00fbb1a64b87e33603fd32266c",
+        "version": "987a02597286dfeb4ea004799c532f03f9e3bfedd41645b4e18bda3740c0d1e7",
         "signature": "1322c767298fe06bc85f27bb4207ec6797e26060dd944a46105a4322a35e8260",
         "affectsGlobalScope": false
       },
