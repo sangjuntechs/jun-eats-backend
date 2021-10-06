@@ -64,7 +64,7 @@ export class UsersService {
       if (!user) {
         return {
           ok: false,
-          error: '유저를 찾을 수 없습니다.',
+          error: '존재하지 않는 계정입니다.',
         };
       }
       //password 맞는지 확인

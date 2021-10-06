@@ -21,14 +21,17 @@ let MailService = class MailService {
     constructor(options) {
         this.options = options;
     }
-    async sendEmail(subject, content, email, code) {
+    async sendEmail(subject, template, code, username) {
         const form = new FormData();
         form.append('from', `Sangjun from JunEats <mailgun@${this.options.domain}>`);
         form.append('to', `devjun0421@gmail.com`);
         form.append('subject', subject);
-        form.append('text', `안녕하세요 ${email}님, SangjunTech - JunEats입니다. ${content} 코드 "${code}"를 작성하고 인증해주십시오.`);
+        form.append('template', template);
+        form.append('v:code', code);
+        form.append('v:username', username);
         try {
             await got_1.default.post(`https://api.mailgun.net/v3/${this.options.domain}/messages`, {
+                method: 'POST',
                 headers: {
                     Authorization: `Basic ${Buffer.from(`api:${this.options.apiKey}`).toString('base64')}`,
                 },
@@ -41,7 +44,7 @@ let MailService = class MailService {
         }
     }
     sendVerificationEmail(email, code) {
-        this.sendEmail('이메일을 인증해주세요 - JunEats', '이메일 인증 관련입니다.', email, code);
+        this.sendEmail('Jun Eats 메일 인증', 'verify-email2', code, email);
     }
 };
 MailService = __decorate([

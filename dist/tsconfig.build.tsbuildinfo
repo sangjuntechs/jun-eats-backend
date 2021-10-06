@@ -6551,8 +6551,8 @@
         "affectsGlobalScope": false
       },
       "../src/mail/mail.interfaces.ts": {
-        "version": "38b136557565d9f0c4fd2a8344f5e48ea18ec4bb7a386bdd85d7ce594ace5df4",
-        "signature": "a82ffa92a07884634fbb12792e9b71690b48ec938ab77f41533a4ddadc7276fa",
+        "version": "f89b56028b7415bb2cd4fd5850ed148b19f23ed80e00613a1ac78405faa291a1",
+        "signature": "d6a3743e38c6884cd0a1478d6df760bd5a1229b0e34ca9172f648438faa85e90",
         "affectsGlobalScope": false
       },
       "../node_modules/p-cancelable/index.d.ts": {
@@ -6641,12 +6641,12 @@
         "affectsGlobalScope": false
       },
       "../src/mail/mail.service.ts": {
-        "version": "77afd3d48aaa23f5cb8b895eaab808404b5640ae698fee9f6c87b3ead1b3b6cc",
-        "signature": "b61807ebedc55cc7d214d20c1448a7da74c14007218ee180a1b4db6d8d7bba13",
+        "version": "a97487e3953f0dd00f95c9a60bc93a74e852889f6a7bfb28f76e71d8561a0690",
+        "signature": "bbb46e716f3c5966d49d2475f662b7883776874e3b0cb2a48ee49b92ab3b96cc",
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "55ded10969b01fb64598547fba3a5e0bbff765862cd02aefc867259d00fff2c5",
+        "version": "970557ec4c9f3f5b6c046b836ef1a27dd180c2ba7ca82d222346674da9df234a",
         "signature": "24a3267286f4dce966b5d1e1c6e0d13b2a97f419c32b78fbf7cf3d769f4335e3",
         "affectsGlobalScope": false
       },
@@ -6845,6 +6845,21 @@
         "signature": "3a1f21a57c2b671beb416798f21407af4d60373e5ddf8a4e99ce4ef2377db909",
         "affectsGlobalScope": false
       },
+      "../src/payments/payment.service.ts": {
+        "version": "0986991c4a1d27c32f4a217451c754addd7fef5d16f49da1c8f6ec4778570878",
+        "signature": "22fe086d574a548362291ca14a2834d0f33c19aaecb7f7c3f8787d95fa908f5a",
+        "affectsGlobalScope": false
+      },
+      "../src/payments/payment.resolver.ts": {
+        "version": "b7d4be071c752a1663fa22ee4960a226a1f9e51a41b3b7f93cb50d5f4cefdd9b",
+        "signature": "0bea116700033c0af807934ce2eac1ca34284665e576e3de866f9f6599c3b177",
+        "affectsGlobalScope": false
+      },
+      "../src/payments/payments.module.ts": {
+        "version": "ffa99343af07fafecda04c9310feb42522c29d5eaf550f00c52ef84bbac08e1e",
+        "signature": "b0a844f50b549a626630dc8d318bfbe6e4eb22db570ff19a952c56bb782c6370",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
         "version": "64421c66dcd1ec7b5f7a79f9869a6c4e2090d031105fa70324b74db914423f97",
         "signature": "64421c66dcd1ec7b5f7a79f9869a6c4e2090d031105fa70324b74db914423f97",
@@ -6895,28 +6910,13 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
-      "../src/payments/payment.service.ts": {
-        "version": "2413f8369e6cd528a978ddad06ed1747e9d5cdaecd9aecba877331628a2a8dfe",
-        "signature": "22fe086d574a548362291ca14a2834d0f33c19aaecb7f7c3f8787d95fa908f5a",
-        "affectsGlobalScope": false
-      },
-      "../src/payments/payment.resolver.ts": {
-        "version": "b7d4be071c752a1663fa22ee4960a226a1f9e51a41b3b7f93cb50d5f4cefdd9b",
-        "signature": "0bea116700033c0af807934ce2eac1ca34284665e576e3de866f9f6599c3b177",
-        "affectsGlobalScope": false
-      },
-      "../src/payments/payments.module.ts": {
-        "version": "ffa99343af07fafecda04c9310feb42522c29d5eaf550f00c52ef84bbac08e1e",
-        "signature": "b0a844f50b549a626630dc8d318bfbe6e4eb22db570ff19a952c56bb782c6370",
-        "affectsGlobalScope": false
-      },
       "../src/app.module.ts": {
         "version": "ed6ba30935fa8161d95ceec84c3c21aa2bf9ced8ca5a1fc75ddf21c637f5ea7f",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "c8a6b066a247042ac853ab45f23dc3c704d344d65f93b1562c5e53ee3fd7369c",
+        "version": "d35475e276eef36759f93d235aa46a1e12f6d50cc75a2243fe70cd95a24ac5ad",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -12657,7 +12657,6 @@
       ],
       "../src/payments/payment.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/payments/dtos/create-payment.dto.ts",
