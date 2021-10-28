@@ -18,6 +18,7 @@ import {
 } from './dtos/delete-restaurant.dto';
 import { EditDishInput, EditDishOutput } from './dtos/edit-dish.dto';
 import { EditRestaurantInput } from './dtos/edit-restaurant.dto';
+import { MyRestaurantOutput } from './dtos/my-restaurant.dto';
 import { RestaurantInput, RestaurantOutput } from './dtos/restaurant.dto';
 import { RestaurantsInput, RestaurantsOutput } from './dtos/restaurants.dto';
 import {
@@ -58,6 +59,21 @@ export class RestaurantService {
       return {
         ok: false,
         error: '식당을 생성할 수 없습니다.',
+      };
+    }
+  }
+
+  async myRestaurants(owner: User): Promise<MyRestaurantOutput> {
+    try {
+      const restaurants = await this.restaurants.find({ owner });
+      return {
+        restaurants,
+        ok: true,
+      };
+    } catch {
+      return {
+        ok: false,
+        error: '음식점을 찾을 수 없습니다.',
       };
     }
   }
@@ -194,8 +210,8 @@ export class RestaurantService {
   async allRestaurants({ page }: RestaurantsInput): Promise<RestaurantsOutput> {
     try {
       const [restaurants, totalResults] = await this.restaurants.findAndCount({
-        skip: (page - 1) * 25,
-        take: 25,
+        skip: (page - 1) * 6,
+        take: 6,
         order: {
           isPromoted: 'DESC',
         },
@@ -203,7 +219,7 @@ export class RestaurantService {
       return {
         ok: true,
         results: restaurants,
-        totalPages: Math.ceil(totalResults / 25),
+        totalPages: Math.ceil(totalResults / 6),
         totalResults: totalResults,
       };
     } catch (error) {
