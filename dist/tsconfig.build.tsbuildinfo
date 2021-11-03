@@ -8641,7 +8641,7 @@
         "affectsGlobalScope": false
       },
       "../src/uploads/uploads.controller.ts": {
-        "version": "0582ba1a8babddd9ae70d314b803882cf060a607e83b3dfd5c2159f7da869861",
+        "version": "8f7750d1f11a9e845ca68b2863778599f8ea7a2fd577d6de9432cff98999f6b4",
         "signature": "b909546dc3ea9eaaa2d752c6adbd5444b40e02ca2546d6b40145b40f43d5b3a7",
         "affectsGlobalScope": false
       },
