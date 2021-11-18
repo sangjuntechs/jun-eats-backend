@@ -8,7 +8,7 @@ import { AllCategoriesOutput } from './dtos/all-categories.dto';
 import { CategoryInput, CategoryOutput } from './dtos/category.dto';
 import {
   CreateRestaurantInput,
-  CreateResturantOutput,
+  CreateRestaurantOutput,
 } from './dtos/create-restaurant.dto';
 import {
   DeleteRestaurantInput,
@@ -32,17 +32,18 @@ import { CreateDishInput, CreateDishOutput } from './dtos/create-dish.dto';
 import { EditDishInput, EditDishOutput } from './dtos/edit-dish.dto';
 import { DeleteDishInput, DeleteDishOutput } from './dtos/delete-dish.dto';
 import { MyRestaurantOutput } from './dtos/my-restaurant.dto';
+import { MyRestaurantsInput, MyRestaurantsOutput } from './dtos/my-restaurants';
 
 @Resolver(() => Restaurant)
-export class ResturantsResolver {
+export class RestaurantsResolver {
   constructor(private readonly restaurantService: RestaurantService) {}
 
-  @Mutation((returns) => CreateResturantOutput)
+  @Mutation((returns) => CreateRestaurantOutput)
   @Role(['Owner'])
   async createRestaurant(
     @AuthUser() authUser: User,
     @Args('input') createRestaurantInput: CreateRestaurantInput,
-  ): Promise<CreateResturantOutput> {
+  ): Promise<CreateRestaurantOutput> {
     return this.restaurantService.createResturant(
       authUser,
       createRestaurantInput,
@@ -53,6 +54,15 @@ export class ResturantsResolver {
   @Role(['Owner'])
   myRestaurants(@AuthUser() owner: User): Promise<MyRestaurantOutput> {
     return this.restaurantService.myRestaurants(owner);
+  }
+
+  @Query((returns) => MyRestaurantsOutput)
+  @Role(['Owner'])
+  myRestaurant(
+    @AuthUser() owner: User,
+    @Args('input') myRestaurantsInput: MyRestaurantsInput,
+  ): Promise<MyRestaurantsOutput> {
+    return this.restaurantService.myRestaurant(owner, myRestaurantsInput);
   }
 
   @Mutation((returns) => EditRestaurantOutput)

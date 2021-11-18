@@ -6446,7 +6446,7 @@
         "affectsGlobalScope": false
       },
       "../src/orders/entities/order-item.entity.ts": {
-        "version": "422464aa52a8a6b8e2aac55850d04f2c114f8b0d3c8f28e55ebb9a2511f9eb00",
+        "version": "59a88741490b733f6540972384c2b5de1381b51e325eeb4bf7b5491ee8dae47a",
         "signature": "a5bffe5e9c45ab4dc02d8b8c837247c7ea3730aa7edea35d7a7e4249623d62e2",
         "affectsGlobalScope": false
       },
@@ -6686,8 +6686,8 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/dtos/create-restaurant.dto.ts": {
-        "version": "8e543f30062c059cc537209954fd94def62d9ed1ea256eb88090696a1634ffe3",
-        "signature": "1aff954e57e38ae11fc647d94df8afb6ef950ade341c298878694a3d083a5495",
+        "version": "d5d882ee0294e47776e37b9cde97ae6b45baf3171f3a3efe30d0d86f29caf4f4",
+        "signature": "decd24873b0b51a9ab18e47c701587c848f872a7496543116c9abf2c9b03b829",
         "affectsGlobalScope": false
       },
       "../src/restaurants/dtos/delete-restaurant.dto.ts": {
@@ -6725,6 +6725,11 @@
         "signature": "1160a77dc82894708b0652f76b82eea20b615139d1cf6d03a472d5fd0d82e3a5",
         "affectsGlobalScope": false
       },
+      "../src/restaurants/dtos/my-restaurants.ts": {
+        "version": "ed81f27876ae1ed713e7b8891168064a891e2778737d3bee031df3815827f123",
+        "signature": "4cd3bb6a0bd1544807c0d2ae903e588a15cbee6211556b493d790c2db2d63c02",
+        "affectsGlobalScope": false
+      },
       "../src/restaurants/dtos/restaurant.dto.ts": {
         "version": "5d01dfd64c72f5a5a3e722d67fe699008acc91648fd4f788ce5322ae413525f8",
         "signature": "294f93960c0ee56971313b58a3eb780b72c04143bcd815fa44a18e8f572ef2a0",
@@ -6736,17 +6741,17 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/restaurants.service.ts": {
-        "version": "cec09b448369b0eeb38e44d54c25c5c6f38edb635ba07b45aa70faabc53f6cc0",
-        "signature": "aba3ede0b035c8324665b46949ecdb92466b8260e6c48980c3e292c3d0f73ff0",
+        "version": "09c4108d68a64987ed10cd0f5d84f8409201d912326c448302d89ba41c2d08b1",
+        "signature": "24d4328c6632b61fc3645f6a72f25f80c941aa6b8c1e6bb457a1e9e4068393be",
         "affectsGlobalScope": false
       },
       "../src/restaurants/restaurants.resolver.ts": {
-        "version": "28a406740b621000df03835342a45b344998b786489734c58f7c058f39d6b436",
-        "signature": "0d35e22ffc1e244204e1279c9224e65745c2789fc69f1a9c0c6ad0fbdb672756",
+        "version": "70e54118adc09f05e53502c06d14856ccd527e942d3f3bffe341e83a3c93595d",
+        "signature": "d28899375e79976b5ed8d0c40919cc85a14f1d45ac7008f9b1f3d0775c0b3bb9",
         "affectsGlobalScope": false
       },
       "../src/restaurants/restaurants.module.ts": {
-        "version": "6a7552a4846d505962804fa8799f4b370b6d0ed9d1944874eb1e359394e4cb5b",
+        "version": "6ad9080728dabd3c19f58f97318bec04238965482589d9eee64927f8adf69d8e",
         "signature": "9e13a6ea5a5333a93880e4d2313ec690be035fce4ae5ce9e8e3afd283ea39cee",
         "affectsGlobalScope": false
       },
@@ -6776,8 +6781,8 @@
         "affectsGlobalScope": false
       },
       "../src/orders/dtos/create-order.dto.ts": {
-        "version": "e13bb243e090317a2ef6718397f4c664a3f32543583365892739029a4c9fa7c5",
-        "signature": "56539c2e3c3aabcfb33f8e23bb49bf818bd6233a98850dacff0d9d2705f9f30e",
+        "version": "22e243bdad00777fbd73b9276331518a031557cc0c8a6ac2b2f774bec220038d",
+        "signature": "2a0af02d6812dbe9e35b11e77d4be430cde62fadd4e519b90ef8dc24df4bdb34",
         "affectsGlobalScope": false
       },
       "../src/orders/dtos/edit-order.dto.ts": {
@@ -6806,7 +6811,7 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "056cd04b6f8824c49b1a4e0a99fb6d98cc6eb313495cc5724eb192c84252011e",
+        "version": "a5f27ef60892bba0bdcf0ca9949aeafdb2638668c48b75661f09f2e35468dbb4",
         "signature": "506a72aa7ed23c9d4b7df46adb246ecc7819ee1adaea5548c4b2ab919698cf8d",
         "affectsGlobalScope": false
       },
@@ -16999,6 +17004,11 @@
         "../src/common/dtos/output.dto.ts",
         "../src/restaurants/entities/restaurant.entity.ts"
       ],
+      "../src/restaurants/dtos/my-restaurants.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/dtos/output.dto.ts",
+        "../src/restaurants/entities/restaurant.entity.ts"
+      ],
       "../src/restaurants/dtos/restaurant.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/common/dtos/output.dto.ts",
@@ -17065,6 +17075,7 @@
         "../src/restaurants/dtos/edit-dish.dto.ts",
         "../src/restaurants/dtos/edit-restaurant.dto.ts",
         "../src/restaurants/dtos/my-restaurant.dto.ts",
+        "../src/restaurants/dtos/my-restaurants.ts",
         "../src/restaurants/dtos/restaurant.dto.ts",
         "../src/restaurants/dtos/restaurants.dto.ts",
         "../src/restaurants/dtos/search-restaurant.dto.ts",
@@ -17087,6 +17098,7 @@
         "../src/restaurants/dtos/edit-dish.dto.ts",
         "../src/restaurants/dtos/edit-restaurant.dto.ts",
         "../src/restaurants/dtos/my-restaurant.dto.ts",
+        "../src/restaurants/dtos/my-restaurants.ts",
         "../src/restaurants/dtos/restaurant.dto.ts",
         "../src/restaurants/dtos/restaurants.dto.ts",
         "../src/restaurants/dtos/search-restaurant.dto.ts",
@@ -25204,6 +25216,11 @@
         "../src/common/dtos/output.dto.ts",
         "../src/restaurants/entities/restaurant.entity.ts"
       ],
+      "../src/restaurants/dtos/my-restaurants.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/common/dtos/output.dto.ts",
+        "../src/restaurants/entities/restaurant.entity.ts"
+      ],
       "../src/restaurants/dtos/restaurant.dto.ts": [
         "../src/common/dtos/output.dto.ts",
         "../src/restaurants/entities/restaurant.entity.ts"
@@ -25245,6 +25262,7 @@
         "../src/restaurants/dtos/edit-dish.dto.ts",
         "../src/restaurants/dtos/edit-restaurant.dto.ts",
         "../src/restaurants/dtos/my-restaurant.dto.ts",
+        "../src/restaurants/dtos/my-restaurants.ts",
         "../src/restaurants/dtos/restaurant.dto.ts",
         "../src/restaurants/dtos/restaurants.dto.ts",
         "../src/restaurants/dtos/search-restaurant.dto.ts",
@@ -25263,6 +25281,7 @@
         "../src/restaurants/dtos/edit-dish.dto.ts",
         "../src/restaurants/dtos/edit-restaurant.dto.ts",
         "../src/restaurants/dtos/my-restaurant.dto.ts",
+        "../src/restaurants/dtos/my-restaurants.ts",
         "../src/restaurants/dtos/restaurant.dto.ts",
         "../src/restaurants/dtos/restaurants.dto.ts",
         "../src/restaurants/dtos/search-restaurant.dto.ts",
@@ -27077,6 +27096,7 @@
       "../src/restaurants/dtos/edit-dish.dto.ts",
       "../src/restaurants/dtos/edit-restaurant.dto.ts",
       "../src/restaurants/dtos/my-restaurant.dto.ts",
+      "../src/restaurants/dtos/my-restaurants.ts",
       "../src/restaurants/dtos/restaurant.dto.ts",
       "../src/restaurants/dtos/restaurants.dto.ts",
       "../src/restaurants/dtos/search-restaurant.dto.ts",

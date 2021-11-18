@@ -6,14 +6,14 @@ import { CategoryRepository } from './repositories/category.repository';
 import {
   CategoryResolver,
   DishResolver,
-  ResturantsResolver,
+  RestaurantsResolver,
 } from './restaurants.resolver';
 import { RestaurantService } from './restaurants.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Restaurant, CategoryRepository, Dish])],
   providers: [
-    ResturantsResolver,
+    RestaurantsResolver,
     RestaurantService,
     CategoryResolver,
     DishResolver,

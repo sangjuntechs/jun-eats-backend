@@ -9,7 +9,7 @@ import { CategoryInput, CategoryOutput } from './dtos/category.dto';
 import { CreateDishInput, CreateDishOutput } from './dtos/create-dish.dto';
 import {
   CreateRestaurantInput,
-  CreateResturantOutput,
+  CreateRestaurantOutput,
 } from './dtos/create-restaurant.dto';
 import { DeleteDishInput, DeleteDishOutput } from './dtos/delete-dish.dto';
 import {
@@ -19,6 +19,7 @@ import {
 import { EditDishInput, EditDishOutput } from './dtos/edit-dish.dto';
 import { EditRestaurantInput } from './dtos/edit-restaurant.dto';
 import { MyRestaurantOutput } from './dtos/my-restaurant.dto';
+import { MyRestaurantsInput, MyRestaurantsOutput } from './dtos/my-restaurants';
 import { RestaurantInput, RestaurantOutput } from './dtos/restaurant.dto';
 import { RestaurantsInput, RestaurantsOutput } from './dtos/restaurants.dto';
 import {
@@ -43,7 +44,7 @@ export class RestaurantService {
   async createResturant(
     owner: User,
     createRestaurantInput: CreateRestaurantInput,
-  ): Promise<CreateResturantOutput> {
+  ): Promise<CreateRestaurantOutput> {
     try {
       const newRestaurant = this.restaurants.create(createRestaurantInput);
       newRestaurant.owner = owner;
@@ -54,6 +55,7 @@ export class RestaurantService {
       await this.restaurants.save(newRestaurant);
       return {
         ok: true,
+        restaurantId: newRestaurant.id,
       };
     } catch (error) {
       return {
@@ -74,6 +76,27 @@ export class RestaurantService {
       return {
         ok: false,
         error: '음식점을 찾을 수 없습니다.',
+      };
+    }
+  }
+
+  async myRestaurant(
+    owner: User,
+    { id }: MyRestaurantsInput,
+  ): Promise<MyRestaurantsOutput> {
+    try {
+      const restaurant = await this.restaurants.findOne(
+        { owner, id },
+        { relations: ['menu'] },
+      );
+      return {
+        restaurant,
+        ok: true,
+      };
+    } catch {
+      return {
+        ok: false,
+        error: 'Could not find restaurant',
       };
     }
   }
@@ -210,8 +233,8 @@ export class RestaurantService {
   async allRestaurants({ page }: RestaurantsInput): Promise<RestaurantsOutput> {
     try {
       const [restaurants, totalResults] = await this.restaurants.findAndCount({
-        skip: (page - 1) * 6,
-        take: 6,
+        skip: (page - 1) * 9,
+        take: 9,
         order: {
           isPromoted: 'DESC',
         },
@@ -219,7 +242,7 @@ export class RestaurantService {
       return {
         ok: true,
         results: restaurants,
-        totalPages: Math.ceil(totalResults / 6),
+        totalPages: Math.ceil(totalResults / 9),
         totalResults: totalResults,
       };
     } catch (error) {
