@@ -6461,7 +6461,7 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/entities/restaurant.entity.ts": {
-        "version": "8e7dd9846e531da53e58acdbe798c89d648e2f3a52360c6356c68334d6768a0f",
+        "version": "007c2a902fbbf591d4116ac0a9b030928febfff2b9f29603a30aefcf9911936a",
         "signature": "1322c767298fe06bc85f27bb4207ec6797e26060dd944a46105a4322a35e8260",
         "affectsGlobalScope": false
       },
@@ -6741,7 +6741,7 @@
         "affectsGlobalScope": false
       },
       "../src/restaurants/restaurants.service.ts": {
-        "version": "09c4108d68a64987ed10cd0f5d84f8409201d912326c448302d89ba41c2d08b1",
+        "version": "5c335206458c554c6a29c023a1a82f4515c9789938e26b32ade4e4b0085a7978",
         "signature": "24d4328c6632b61fc3645f6a72f25f80c941aa6b8c1e6bb457a1e9e4068393be",
         "affectsGlobalScope": false
       },
